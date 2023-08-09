@@ -1,8 +1,9 @@
 correct_dependency_ids: {R4JRRFM62XCXXE6E: R4JRRFM62XCXXE6E, EQQMHT4ZPNVIAT2X: EQQMHT4ZPNVIAT2X,
   dep_rb6njj1ns8vyd: SXGQVEYU3C2NJ5KR, dep_dcvll6vcje54tm: EQQMHT4ZPNVIAT2X}
 dependencies:
-- app_id: R4JRRFM62XCXXE6E
+- dep_id: dep_c23zpfh2e2lci
   version: {dev: false}
+  resolution_hints: {app_id: SXGQVEYU3C2NJ5KR, name: AMS_Data, package_name: AMS_Data}
 services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}
@@ -21,13 +22,14 @@ services:
 startup: {type: form, module: Form1}
 package_name: fr_custom_signup
 allow_embedding: false
-name: Clone of Sign_In for Fitness'd
+name: Clone of Sign_In for AMS_Data
 runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-full
   server_spec: {base: python310-standard}
-metadata: {title: Sign_In, logo_img: 'asset:Logo F S small_transparent.png', description: Sign_In for Fitness'd}
+metadata: {title: Sign_In, logo_img: 'asset:Logo F S small_transparent.png', description: 'Sign_In
+    for AMS_Data '}
 startup_form: null
 db_schema:
   users:
