@@ -20,7 +20,7 @@ services:
   client_config: {}
   server_config: {}
 startup: {type: form, module: Form1}
-package_name: signup_for_AMS_Data
+package_name: sign_up_for_AMS_Data
 allow_embedding: false
 name: Sign_In for AMS_Data
 runtime_options:
