@@ -22,7 +22,7 @@ services:
 startup: {type: form, module: Form1}
 package_name: fr_custom_signup
 allow_embedding: false
-name: Clone of Sign_In for AMS_Data
+name: Sign_In for AMS_Data
 runtime_options:
   version: 2
   client_version: '3'
