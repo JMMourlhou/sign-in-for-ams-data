@@ -15,7 +15,7 @@ services:
   server_config: {user_table: 490272}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {}
+  server_config: {custom_smtp: true, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: jmarc@jmm-formation-et-services.fr}
 - source: /runtime/services/anvil/files.yml
   client_config: {}
   server_config: {}
@@ -32,38 +32,6 @@ metadata: {title: Sign_In, logo_img: 'asset:Logo F S small_transparent.png', des
     for AMS_Data '}
 startup_form: null
 db_schema:
-  users:
-    title: Users
-    client: none
-    server: full
-    columns:
-    - name: email
-      admin_ui: {width: 346.02179}
-      type: string
-    - name: enabled
-      admin_ui: {width: 100}
-      type: bool
-    - name: password_hash
-      admin_ui: {width: 200}
-      type: string
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-    - name: link_key
-      admin_ui: {width: 200}
-      type: string
-    - name: confirmed_email
-      admin_ui: {width: 200}
-      type: bool
-    - name: last_login
-      admin_ui: {width: 200}
-      type: datetime
-    - name: n_password_failures
-      admin_ui: {width: 200}
-      type: number
-    - name: remembered_logins
-      admin_ui: {width: 200}
-      type: simpleObject
   files:
     title: Files
     client: none
@@ -76,6 +44,38 @@ db_schema:
       admin_ui: {width: 200}
       type: media
     - name: file_version
+      admin_ui: {width: 200}
+      type: string
+  users:
+    title: Users
+    client: none
+    server: full
+    columns:
+    - name: email
+      admin_ui: {width: 200}
+      type: string
+    - name: enabled
+      admin_ui: {width: 200}
+      type: bool
+    - name: signed_up
+      admin_ui: {width: 200}
+      type: datetime
+    - name: last_login
+      admin_ui: {width: 200}
+      type: datetime
+    - name: password_hash
+      admin_ui: {width: 200}
+      type: string
+    - name: n_password_failures
+      admin_ui: {width: 200}
+      type: number
+    - name: confirmed_email
+      admin_ui: {width: 200}
+      type: bool
+    - name: first_name
+      admin_ui: {width: 200}
+      type: string
+    - name: api_key
       admin_ui: {width: 200}
       type: string
 renamed: true

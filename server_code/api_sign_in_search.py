@@ -12,7 +12,7 @@ from anvil.tables import app_tables
 import anvil.server
 import bcrypt # to test the API key crypted
 from . import french_zone
-import Fitness_d
+#import Fitness_d
 
 #test3: is the new user in the users data table (for email validation) ?
 @anvil.server.callable
