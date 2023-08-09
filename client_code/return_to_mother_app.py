@@ -10,7 +10,5 @@ mais seulement d'un module !
 """ ************************************************************************"""  
 def calling_mother_app(x=2):
     import AMS_Data
-    #from Fitness_d.home_form import home_form
-    #open_form('Fitness_d.home_form',x)    #x=3 si login normale
     from AMS_Data import Module1
     Module1.starting_app(x)  # ds main app 2+1 donc pas de retour ds Sign In
