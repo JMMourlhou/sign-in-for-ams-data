@@ -60,7 +60,7 @@ def _send_email_confirm_link(email):
 <p><img src = {logo_address} width="200" height="200"> </p> 
 <b>{user["first_name"]},</b><br>
 <br>
-Merci pour votre enregistrement dans notre service !<br>
+Merci pour votre enregistrement sur {var_globales.nom_app_pour_mail} !<br>
 Afin de confirmer votre adresse mail, <b>clickez le lien ci-dessous:</b><br>
 <br>
 {var_globales.code_app1}/#?a=confirm&email={url_encode(user['email'])}&hpw={url_encode(user['password_hash'])}&t={t} <br>

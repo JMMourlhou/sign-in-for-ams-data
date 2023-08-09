@@ -15,7 +15,8 @@ services:
   server_config: {user_table: 490272}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {custom_smtp: true, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: jmmourlhou@gmail.com}
+  server_config: {custom_smtp: true, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: jmarc@jmm-formation-et-services.fr,
+    smtp_password: 5VFLeBwojfaUeb4p/LcVmJFNHdAQrVK9p6++Cq7wZq9Es1DTIcE5cAbOX1hanyGnvXMjCqRJHR/KScOPQtVBVtSVAsyc6PvP5nkZNVLJNcbxnmw4wMUX8I0G3vg8TylTnJ9sAQtqPjFq6qPMmThqX3S2EsgghVHAKD090UCVj5vzM7UW9I6EyUwqYm65ZDuR/w==}
 - source: /runtime/services/anvil/files.yml
   client_config: {}
   server_config: {}
