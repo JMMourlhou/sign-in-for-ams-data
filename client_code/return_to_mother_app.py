@@ -11,6 +11,5 @@ mais seulement d'un module !
 def calling_mother_app(x=2):
     import AMS_Data
     from AMS_Data.Main import Main
-        
-    Main.content_panel.clear()
-    Main.content_panel.add_component(Main(), full_width_row=True)
+    open_form('AMS_Data.Main',x)    #x=3 si login normale
+    
