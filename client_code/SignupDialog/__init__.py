@@ -10,8 +10,10 @@ class SignupDialog(SignupDialogTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    password_box = "" 
-    password_repeat_box = ""
+    self.name_box.text = ""
+    self.email_box.text = ""
+    self.password_box.text = "" 
+    self.password_repeat_box.text = ""
     # Any code you write here will run when the form opens.
     
   def focus_email(self, **kws):

@@ -53,7 +53,8 @@ def confirm(h):
             #test3: is the user in the users data table ?
             user=anvil.server.call("search", to_be_confirmed_email, hpw)
             #Displaying the confirm alert 
-            msg=user["first_name"]+", votre mail est confirmé, connectez-vous avec votre mail et mot de passe."
+            msg="Mr/Mme "+user["nom"]+", votre mail est confirmé, connectez-vous avec votre mail et mot de passe."
+            alert(msg)
         except:
         #if not user:
             alert("Essayez de vous connecter.")

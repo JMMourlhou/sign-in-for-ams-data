@@ -12,7 +12,7 @@ components:
 - type: ColumnPanel
   properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-    spacing_below: small, background: '#6750A4'}
+    spacing_below: small, background: 'theme:Primary 500'}
   name: column_panel_1
   layout_properties: {grid_position: 'UJGVVZ,PULETG'}
   components:
@@ -21,7 +21,7 @@ components:
     name: spacer_2
     layout_properties: {grid_position: 'YIKGER,LZIQGV'}
   - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Entrez votre nom,
+    properties: {role: dense, align: left, hide_text: false, tooltip: '', placeholder: Entrez votre nom,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
       font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
       background: 'theme:Primary 500', bold: false, underline: false}
@@ -40,6 +40,10 @@ components:
       col_widths: {}
       grid_position: VLNING,JOJLLS
     event_bindings: {pressed_enter: focus_password}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_1
+    layout_properties: {grid_position: 'KMFGPG,ZMDFPB'}
   - type: TextBox
     properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: Mot de passe,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,

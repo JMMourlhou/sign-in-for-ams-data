@@ -1,38 +1,38 @@
 container: {type: ColumnPanel}
 components:
 - type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'Entrez votre nouveau mot de passe:', font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
-    underline: false, icon: ''}
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'Entrez votre nouveau mot de passe:', font_size: null, font: '',
+    spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '',
+    bold: true, underline: false, icon: ''}
   name: label_1
   layout_properties:
     col_widths: {}
     grid_position: LKDZTM,OPXGAQ
 - type: TextBox
-  properties: {role: null, width: default, align: left, hide_text: true, placeholder: '',
-    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-    font: '', spacing_above: none, type: text, spacing_below: small, italic: false,
-    background: '', bold: false, underline: false}
+  properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: 'theme:Primary 500', visible: true, text: '',
+    font_size: null, font: '', spacing_above: none, type: text, spacing_below: small,
+    italic: false, background: 'theme:Primary 700', bold: false, underline: false}
   name: pw_box
   layout_properties:
     col_widths: {}
     grid_position: YNOTKY,IVXFNE
   event_bindings: {pressed_enter: focus_pw_repeat_box}
 - type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'Re-entrez le mot de passe:', font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
-    underline: false, icon: ''}
+  properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'Re-entrez le mot de passe:', font_size: null, font: '',
+    spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '',
+    bold: true, underline: false, icon: ''}
   name: label_2
   layout_properties:
     col_widths: {}
     grid_position: PRMRSK,ERARRJ
 - type: TextBox
-  properties: {role: null, width: default, align: left, hide_text: true, placeholder: '',
-    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-    font: '', spacing_above: none, type: text, spacing_below: small, italic: false,
-    background: '', bold: false, underline: false}
+  properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: 'theme:Primary 500', visible: true, text: '',
+    font_size: null, font: '', spacing_above: none, type: text, spacing_below: small,
+    italic: false, background: 'theme:Primary 700', bold: false, underline: false}
   name: pw_repeat_box
   layout_properties:
     col_widths: {}

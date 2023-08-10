@@ -40,7 +40,7 @@ def search(to_be_confirmed_email, hpw):
         new_user_row["last_login"]=new_user_row["signed_up"]
         # Forcing my new user to login
         user=anvil.users.force_login(new_user_row)
-        print(user["first_name"])
+        print(user["nom"])
     return user
 
 def hash_password(password, salt):
