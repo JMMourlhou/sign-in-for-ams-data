@@ -1,7 +1,7 @@
 correct_dependency_ids: {R4JRRFM62XCXXE6E: R4JRRFM62XCXXE6E, EQQMHT4ZPNVIAT2X: EQQMHT4ZPNVIAT2X,
   dep_rb6njj1ns8vyd: SXGQVEYU3C2NJ5KR, dep_dcvll6vcje54tm: EQQMHT4ZPNVIAT2X}
 dependencies:
-- dep_id: dep_c23zpfh2e2lci
+- dep_id: dep_dt8k9yljueyma
   version: {dev: false}
   resolution_hints: {app_id: SXGQVEYU3C2NJ5KR, name: AMS_Data, package_name: AMS_Data}
 services:
