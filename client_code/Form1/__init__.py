@@ -10,7 +10,7 @@ from .. import login_flow
 from .. import return_to_mother_app
 from .. import url_from_mail
 
-from AMS_Data import Module1
+#from AMS_Data import Module1
 """
 Form1 est ouvert avec la variable 'nb' (test de passages)
 si x = 3 c'est une ouverture demandée par app extérieure,suite à connection d'1 user

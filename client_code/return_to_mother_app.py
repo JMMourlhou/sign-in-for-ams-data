@@ -10,5 +10,7 @@ mais seulement d'un module !
 """ ************************************************************************"""  
 def calling_mother_app(x=2):
     import AMS_Data
-    from AMS_Data import Module1
-    Module1.starting_app(x)  # ds main app 2+1 donc pas de retour ds Sign In
+    from AMS_Data.Main import Main
+        
+    Main.content_panel.clear()
+    Main.content_panel.add_component(Main(), full_width_row=True)
