@@ -51,12 +51,16 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 
 @anvil.server.callable
 def _send_email_confirm_link(email):
+  anvil.email.send(from_name = "My App Support", 
+                to = "jmarc@jmm-formation-et-services.fr",
+                subject = "de sign in for AMS",
+                text = "test2 !") 
   """Send an email confirmation link if the specified user's email is not yet confirmed"""
   user = app_tables.users.get(email=email)
   logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None and not user['confirmed_email']:  # User table, Column confirmed_email not checked/True
-        anvil.email.send(to=user['email'], from_address="jmarc@jmm-formation-et-services.fr", subject=var_globales.nom_app_pour_mail + "Confirmation de votre adresse email", html=f"""
+        anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Confirmation de votre adresse email", html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
 <b>{user["first_name"]},</b><br>
 <br>
