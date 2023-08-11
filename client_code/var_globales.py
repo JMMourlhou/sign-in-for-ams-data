@@ -11,4 +11,4 @@ code_app2 = "https://2erggvosxp234ktt.anvil.app/EK44RJHJVMRZ7R52DY6NEURF" # App 
 nom_app_pour_mail = "AMSport Data"                                          
 mon_mail = "jmarc@jmm-formation-et-services.fr"
 mon_logo = "logo_fs_small.png"
-timedelay_url_in_min = 1 #10 minutes delay, after URL (mail-confirm or pw-reset) over 
+timedelay_url_in_min = 10 #10 minutes delay, after URL (mail-confirm or pw-reset) over 
