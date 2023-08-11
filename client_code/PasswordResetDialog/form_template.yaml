@@ -11,7 +11,7 @@ components:
     grid_position: LKDZTM,OPXGAQ
 - type: TextBox
   properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: '',
-    border: '', enabled: true, foreground: 'theme:Primary 500', visible: true, text: '',
+    border: '', enabled: true, foreground: 'theme:White', visible: true, text: '',
     font_size: null, font: '', spacing_above: none, type: text, spacing_below: small,
     italic: false, background: 'theme:Primary 700', bold: false, underline: false}
   name: pw_box
@@ -30,7 +30,7 @@ components:
     grid_position: PRMRSK,ERARRJ
 - type: TextBox
   properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: '',
-    border: '', enabled: true, foreground: 'theme:Primary 500', visible: true, text: '',
+    border: '', enabled: true, foreground: 'theme:White', visible: true, text: '',
     font_size: null, font: '', spacing_above: none, type: text, spacing_below: small,
     italic: false, background: 'theme:Primary 700', bold: false, underline: false}
   name: pw_repeat_box
