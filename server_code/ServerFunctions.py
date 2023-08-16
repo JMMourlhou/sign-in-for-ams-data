@@ -63,7 +63,7 @@ def _send_email_confirm_link(email):
   if user is not None and not user['confirmed_email']:  # User table, Column confirmed_email not checked/True
         anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Confirmation de votre adresse email", html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
-<b>{user["nom"]},</b><br>
+<b>Mr/Mme {user["nom"]},</b><br>
 <br>
 Merci pour votre enregistrement sur {var_globales.nom_app_pour_mail} !<br>
 Afin de confirmer votre adresse mail, <b>clickez le lien ci-dessous:</b><br>
