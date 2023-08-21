@@ -33,7 +33,7 @@ def _send_password_reset(email):
     logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
     anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Reinitilisez votre mot de passe", html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
-<b>{user["nom"]},</b><br>
+<b>Mme/Mr {user["nom"]},</b><br>
 <br>
 Avez-vous bien demandé une modification du mot de passe de votre compte ? Si ce n'est pas vous, supprimez cet email ! <br>
 <br>
@@ -63,7 +63,7 @@ def _send_email_confirm_link(email):
   if user is not None and not user['confirmed_email']:  # User table, Column confirmed_email not checked/True
         anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Confirmation de votre adresse email", html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
-<b>Mr/Mme {user["nom"]},</b><br>
+<b>Mme/Mr {user["nom"]},</b><br>
 <br>
 Merci pour votre enregistrement sur {var_globales.nom_app_pour_mail} !<br>
 Afin de confirmer votre adresse mail, <b>clickez le lien ci-dessous:</b><br>
