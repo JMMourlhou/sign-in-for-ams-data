@@ -26,7 +26,6 @@ class Form1(Form1Template):
     self.h=h
     #alert(h)
     if len(h)!=0:  # a URL from a confirm/reset_pw mail was sent to main app
-      
         url_from_mail.confirm(h) 
             
     self.update_login_status()
