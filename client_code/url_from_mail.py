@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.server
 from . import return_to_mother_app
 from . import login_flow
+from . SignupDialog import SignupDialog
 
 """In a URL, what travels after # is known as hash.
 In an HTTP request that reaches a server (server side)
@@ -25,17 +26,17 @@ def confirm(h, num_stage=0):
         print("URL not a dict type")
         return
     print("type; ", isinstance(h, dict))
-
+    
+    url_purpose=h["a"]  # contient le but du lien: qrcode ou pwrest ou confirm
+    if url_purpose == "qrcode":
+        login_flow.signup_with_form(num_stage)        # envoyer en sign in
+    
     # mail in URL ?
     to_be_confirmed_email=h["email"]
     if to_be_confirmed_email == "" :
         alert("email vide")
         return
-    
-        
-    url_purpose=h["a"]
-    """ 'pw reset URL'  """
-    
+       
     if url_purpose=='pwreset':
         #alert("pwreset, going to login_flow")
         login_flow.do_email_reset(h)  

@@ -65,7 +65,7 @@ def signup_with_form(num_stage):
   d = SignupDialog()
 
   while True:
-    if not alert(d, title="Création de votre cpt", buttons=[("S'enregistrer", True, 'primary'), ("Annuler", False)]):
+    if not alert(d, title="Création de votre compte", buttons=[("S'enregistrer", True, 'primary'), ("Annuler", False)]):
       return
     
     if d.password_box.text != d.password_repeat_box.text:

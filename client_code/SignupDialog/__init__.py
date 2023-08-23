@@ -7,7 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class SignupDialog(SignupDialogTemplate):
-  def __init__(self, **properties):
+  def __init__(self, num_stage=0, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.name_box.text = ""
@@ -17,6 +17,7 @@ class SignupDialog(SignupDialogTemplate):
     
     self.image_1.visible = False
     # Any code you write here will run when the form opens.
+    self.focus_email()
     
   def focus_email(self, **kws):
      """Focus on the email box."""

@@ -51,12 +51,8 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 
 @anvil.server.callable
 def _send_email_confirm_link(email):
-  """anvil.email.send(from_name = "My App Support", 
-                to = "jmarc@jmm-formation-et-services.fr",
-                subject = "de sign in for AMS",
-                text = "test2 !")
-  """              
-  """Send an email confirmation link if the specified user's email is not yet confirmed"""
+           
+  """Send an email confirmation link: the user's email is not yet confirmed"""
   user = app_tables.users.get(email=email)
   logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
   t=recup_time() # t will be text form (module at the end of this server code module)
@@ -108,7 +104,7 @@ def _do_signup(email, name, password, num_stage):
     if user is None:   # user not created yet
       api = mk_api_key()
       date_heure = french_zone.time_french_zone()
-      user = app_tables.users.add_row(email=email.lower(), enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, stage_num_temp=num_stage)
+      user = app_tables.users.add_row(email=email.lower(), enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, stage_num_temp=int(num_stage))
       print("création user", user['email'])
       return user
     
