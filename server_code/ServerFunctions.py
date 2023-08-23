@@ -91,8 +91,8 @@ def hash_password(password, salt):
 
 
 @anvil.server.callable
-def _do_signup(email, name, password):
-  print(email, name, password)
+def _do_signup(email, name, password, num_stage):
+  print(email, name, password, num_stage)
   if name is None or name.strip() == "":
     return "Entrez un nom SVP !"
   
@@ -108,7 +108,7 @@ def _do_signup(email, name, password):
     if user is None:   # user not created yet
       api = mk_api_key()
       date_heure = french_zone.time_french_zone()
-      user = app_tables.users.add_row(email=email.lower(), enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure)
+      user = app_tables.users.add_row(email=email.lower(), enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, stage_num_temp=num_stage)
       print("création user", user['email'])
       return user
     

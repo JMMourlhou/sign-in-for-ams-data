@@ -61,7 +61,7 @@ def login_with_form(allow_cancel=True):
       break
 
       
-def signup_with_form():
+def signup_with_form(num_stage):
   d = SignupDialog()
 
   while True:
@@ -73,7 +73,7 @@ def signup_with_form():
       d.signup_err_lbl.visible = True
       continue
     
-    err = anvil.server.call('_do_signup', d.email_box.text, d.name_box.text, d.password_box.text)
+    err = anvil.server.call('_do_signup', d.email_box.text, d.name_box.text, d.password_box.text, num_stage)
     if err is not None:
       d.signup_err_lbl.text = err
       d.signup_err_lbl.visible = True

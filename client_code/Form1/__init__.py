@@ -15,18 +15,19 @@ from .. import url_from_mail
 Form1 est ouvert avec la variable 'nb' (test de passages)
 si x = 3 c'est une ouverture demandée par app extérieure,suite à connection d'1 user
           pas d'envoi vers le test de l'url, 
-si x = 2 c'est une ouverture par url suite à sign in  ou  pw reset
+si x = 2 c'est une ouverture par url suite à sign in  ou  pw reset ou flash code
           envoi vers le test de l'url pour tester si une url a ouvert Fitness'd
 """
 class Form1(Form1Template):
-  def __init__(self, h={}, **properties):
+  def __init__(self, h={}, num_stage=0, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Any code you write here will run when the form opens.
+    self.num_stage = num_stage  
     self.h=h
     #alert(h)
     if len(h)!=0:  # a URL from a confirm/reset_pw mail was sent to main app
-        url_from_mail.confirm(h) 
+        url_from_mail.confirm(h, num_stage) 
             
     self.update_login_status()
         
@@ -57,7 +58,7 @@ class Form1(Form1Template):
 
   def signup_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
-    login_flow.signup_with_form()
+    login_flow.signup_with_form(self.num_stage)
 
   
     

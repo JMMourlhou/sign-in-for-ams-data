@@ -14,7 +14,7 @@ Therefore, on the server side, it is not possible to retrieve it
 (web browsers do not send this data in the HTTP request).
 However, on the client side it is possible. """  
 
-def confirm(h):   
+def confirm(h, num_stage=0):   
     if h == None:
         return
     print(f"l'Url est: {h}")
