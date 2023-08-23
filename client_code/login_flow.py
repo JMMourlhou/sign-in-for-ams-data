@@ -26,6 +26,7 @@ def login_with_form(allow_cancel=True):
     choice = alert(d, title="", dismissible=allow_cancel, buttons=BUTTONS)
     print("choice:", choice)
     if choice == 'login' and d.email_box.text != "":
+      #d.email_box.text = d.email_box.text.lower()
       try:
         user_row=anvil.users.login_with_email(d.email_box.text, d.password_box.text, remember=True)
         anvil.server.call("force_log",user_row)
@@ -42,7 +43,7 @@ def login_with_form(allow_cancel=True):
       fp = ForgottenPasswordDialog(d.email_box.text)
       
       if alert(fp, title='Mot de passe oublié', buttons=[("Le réinitialiser", True, "primary"), ("Annuler", False)]):
-        
+        #fp.email_box.text = fp.email_box.text.lower()
         if anvil.server.call('_send_password_reset', fp.email_box.text):
           alert(f"Un mail de réinitilisation du mot de passe a été envoyé à {fp.email_box.text}.")
           #allow_cancel=True
@@ -72,7 +73,8 @@ def signup_with_form(num_stage):
       d.signup_err_lbl.text = 'Les mots de passe sont différents! Recommencez.'
       d.signup_err_lbl.visible = True
       continue
-    
+        
+    d.email_box.text = d.email_box.text.lower()
     err = anvil.server.call('_do_signup', d.email_box.text, d.name_box.text, d.password_box.text, num_stage)
     if err is not None:
       d.signup_err_lbl.text = err
