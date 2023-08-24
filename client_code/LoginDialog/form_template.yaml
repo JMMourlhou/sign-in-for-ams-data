@@ -40,7 +40,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: BKNGUM,PQKVYZ
-    event_bindings: {pressed_enter: close_alert}
+    event_bindings: {}
   - type: Spacer
     properties: {height: 32}
     name: spacer_2
