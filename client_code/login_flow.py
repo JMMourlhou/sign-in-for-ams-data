@@ -89,12 +89,12 @@ def signup_with_form(num_stage):
         
     err = anvil.server.call('do_signup', d.email_box.text, d.name_box.text, d.password_box.text, num_stage)
     if err is not None:
-      d.signup_err_lbl.text = err
-      d.signup_err_lbl.visible = True
+      alert(err)  
     else:
-      alert(f"Nous vous avons envoyé un mail de confirmation\nà l'adresse: {d.email_box.text}.\n\nVérifiez votre mail, et cliquez sur le lien.")
-      return
-  
+        anvil.server.call("_send_email_confirm_link", d.email_box.text)
+        alert(f"Nous vous avons envoyé un mail de confirmation\nà l'adresse: {d.email_box.text}.\n\nVérifiez votre mail, et cliquez sur le lien.")
+    return
+
     
 def do_email_reset(h):
   """Check whether the user has arrived from a password reset, and pop up any necessary dialogs."""

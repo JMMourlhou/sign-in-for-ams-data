@@ -82,6 +82,8 @@ def hash_password(password, salt):
 
   if isinstance(result, bytes):
     return result.decode('utf-8')
+
+
 """
 # Add the user in a transaction, to make sure there is only ever one user in this database
 # with this email address. The transaction might retry or abort, so wait until after it's
@@ -102,12 +104,11 @@ def do_signup(email, name, password, num_stage):
   
     user = app_tables.users.add_row(email=email.lower(), enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, stage_num_temp=int(num_stage))
     print("création user", user['email'])
-    
-    return user
-  else:
+    err = None # pas d'erreur
+  else:  # erreur 
     print("existant",user['email']) 
-    return "Cet adresse mail est déjà enregistrée par nos services. Essayez plutôt de vous connecter."
-  
+    err = "Cet adresse mail est déjà enregistrée par nos services. Essayez plutôt de vous connecter."
+  return err
 
   
 # for Pw reset or new user email confirmation  
