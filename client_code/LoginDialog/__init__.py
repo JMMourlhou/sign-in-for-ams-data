@@ -13,7 +13,8 @@ class LoginDialog(LoginDialogTemplate):
     self.init_components(**properties)
     self.image_1.visible = False
     # Any code you write here will run when the form opens.
-
+    self.email_box.focus()
+      
   def confirm_lnk_click (self, **event_args):
     """Close any alert we might be in with 'confirm_email' value."""
     self.raise_event('x-close-alert', value='confirm_email')
@@ -26,13 +27,22 @@ class LoginDialog(LoginDialogTemplate):
      """Focus on the password box."""
      self.password_box.focus()
 
-  def close_alert(self, **kws):
+  def close_alertmel(self, **kws):
      """Close any alert we might be in with 'login' value."""
      self.raise_event('x-close-alert', value='login')
 
   def form_show(self, **event_args):
       """This method is called when the column panel is shown on the screen"""
       self.email_box.focus()
+
+  def email_box_lost_focus(self, **event_args):
+      """This method is called when the TextBox loses focus"""
+      # MISE EN MINUSCULE DE L'ADRESSE MAIL
+      mel = self.email_box.text
+      mel = mel.lower()
+      self.email_box.text = mel
+      alert("LOGIN DIALOG", mel)
+
 
   
 

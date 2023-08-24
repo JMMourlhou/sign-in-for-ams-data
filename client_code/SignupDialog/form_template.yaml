@@ -53,7 +53,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: SYYTIH,DWIRGV
-    event_bindings: {pressed_enter: focus_password_repeat}
+    event_bindings: {pressed_enter: focus_password_repeat, focus: password_box_focus}
   - type: TextBox
     properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: Ré-entrez votre mot de passe,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,

@@ -26,18 +26,21 @@ def login_with_form(allow_cancel=True):
     choice = alert(d, title="", dismissible=allow_cancel, buttons=BUTTONS)
     print("choice:", choice)
     if choice == 'login' and d.email_box.text != "":
-      #d.email_box.text = d.email_box.text.lower()
-      try:
-        user_row=anvil.users.login_with_email(d.email_box.text, d.password_box.text, remember=True)
-        anvil.server.call("force_log",user_row)
-          
-        return_to_mother_app.calling_mother_app(2)
+        #d.email_box.text = d.email_box.text.lower()
+        mel = d.email_box.text
+        mel = mel.lower()
+        d.email_box.text = mel
         
-      except anvil.users.EmailNotConfirmed:
-        d.confirm_lnk.visible = True
-      except anvil.users.AuthenticationFailed as e:
-        d.login_err_lbl.text = str(e.args[0])
-        d.login_err_lbl.visible = True
+        try:
+            user_row=anvil.users.login_with_email(d.email_box.text, d.password_box.text, remember=True)
+            anvil.server.call("force_log",user_row)
+            return_to_mother_app.calling_mother_app(2)
+        
+        except anvil.users.EmailNotConfirmed:
+            d.confirm_lnk.visible = True
+        except anvil.users.AuthenticationFailed as e:
+            d.login_err_lbl.text = str(e.args[0])
+            d.login_err_lbl.visible = True
         
     elif choice == 'reset_password':
       fp = ForgottenPasswordDialog(d.email_box.text)
@@ -73,8 +76,10 @@ def signup_with_form(num_stage):
       d.signup_err_lbl.text = 'Les mots de passe sont différents! Recommencez.'
       d.signup_err_lbl.visible = True
       continue
-        
-    d.email_box.text = d.email_box.text.lower()
+    mel = d.email_box.text
+    mel = mel.lower()
+    d.email_box.text = mel
+    alert(mel)
     err = anvil.server.call('_do_signup', d.email_box.text, d.name_box.text, d.password_box.text, num_stage)
     if err is not None:
       d.signup_err_lbl.text = err

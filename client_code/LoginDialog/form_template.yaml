@@ -30,7 +30,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: GMACWM,CAOLPZ
-    event_bindings: {pressed_enter: focus_password}
+    event_bindings: {pressed_enter: focus_password, lost_focus: email_box_lost_focus}
   - type: TextBox
     properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: Mot de passe,
       border: '', enabled: true, foreground: 'theme:Secondary 500', visible: true,
@@ -58,7 +58,7 @@ components:
     event_bindings: {click: reset_pw_link_click}
   - type: Label
     properties: {role: null, align: center, tooltip: '', border: '', foreground: red,
-      visible: false, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+      visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
       spacing_below: small, italic: false, background: 'theme:Primary 500', bold: true,
       underline: false, icon: ''}
     name: login_err_lbl
