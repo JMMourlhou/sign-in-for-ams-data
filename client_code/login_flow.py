@@ -71,15 +71,22 @@ def signup_with_form(num_stage):
   while True:
     if not alert(d, title="Création de votre compte", buttons=[("S'enregistrer", True, 'primary'), ("Annuler", False)]):
       return
-    
+        
+    if d.password_box.text == "":
+      d.signup_err_lbl.text = "Le mot de passe n'est pas rentré !"
+      return
     if d.password_box.text != d.password_repeat_box.text:
-      d.signup_err_lbl.text = 'Les mots de passe sont différents! Recommencez.'
+      d.signup_err_lbl.text = "Les mots de passe sont différents! Recommencez."
       d.signup_err_lbl.visible = True
       continue
-    mel = d.email_box.text
-    mel = mel.lower()
-    d.email_box.text = mel
-    alert(mel)
+
+    if d.email_box.text == "":
+      d.signup_err_lbl.text = "Le mail n'est pas rentré !"
+      return
+    if d.name_box.text == "":
+      d.signup_err_lbl.text = "Le nom n'est pas rentré !"
+      return 
+        
     err = anvil.server.call('_do_signup', d.email_box.text, d.name_box.text, d.password_box.text, num_stage)
     if err is not None:
       d.signup_err_lbl.text = err

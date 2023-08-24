@@ -18,10 +18,14 @@ class SignupDialog(SignupDialogTemplate):
     self.image_1.visible = False
     # Any code you write here will run when the form opens.
     self.focus_email()
-    
-  def focus_email(self, **kws):
+      
+  def focus_name(self, **kws):
      """Focus on the name box."""
      self.name_box.focus()
+      
+  def focus_email(self, **kws):
+     """Focus on the name box."""
+     self.email_box.focus()
 
   def focus_password(self, **kws):
     """Focus on the password box."""
@@ -32,26 +36,22 @@ class SignupDialog(SignupDialogTemplate):
     self.password_repeat_box.focus()
 
   def close_alert(self, **kws):
-    """Close any alert we might be in with True value."""
-    self.raise_event('x-close-alert', value=True)
+    """Close any alert we might be in with False value."""
+    self.raise_event('x-close-alert', value=False)
 
   def password_box_focus(self, **event_args):
       """This method is called when the TextBox gets focus"""
       # nom vide ?
       if self.name_box.text == "":
         alert("Entrez votre nom svp !")
-        self.close_alert()
         return
       # lg du nom >= 2 ? mais pas bloquant
       if len(self.name_box.text) <= 2 :
-        r=alert("Votre Nom est-il correct ?","oui","non")
-        result = alert(content="Votre Nom est-il correct ?",
-               large=False,
-               buttons=[
-                 ("Oui", "YES"),
-                 ("Non", "NO"),
-                 ])
+        r=alert("Votre Nom est-il correct ?",buttons=[("non",False),("oui",True)])
+        if not r :   #Non, nom pas correct
+            return
       #1ere lettre en majuscules
+      nm = self.name_box.text
       nm = nm.capitalize()
       self.name_box.text = nm
       
@@ -63,9 +63,10 @@ class SignupDialog(SignupDialogTemplate):
       mel = self.email_box.text
       mel = mel.lower()
       self.email_box.text = mel
+      
       # @ ds mail ?
       if not "@" in self.email_box.text:
-          alert("Entrez un mail valide")
+          alert("Entrez un mail valide !")
           return
 
      
