@@ -48,11 +48,9 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 """)
     return True
 
-
+"""Sending the email confirmation link: the new user's email must be confirmed"""
 @anvil.server.callable
 def _send_email_confirm_link(email):
-           
-  """Send an email confirmation link: the user's email is not yet confirmed"""
   user = app_tables.users.get(email=email)
   logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
   t=recup_time() # t will be text form (module at the end of this server code module)
@@ -84,40 +82,33 @@ def hash_password(password, salt):
 
   if isinstance(result, bytes):
     return result.decode('utf-8')
-
-
+"""
+# Add the user in a transaction, to make sure there is only ever one user in this database
+# with this email address. The transaction might retry or abort, so wait until after it's
+# done before sending the email.
+"""
+@tables.in_transaction
 @anvil.server.callable
-def _do_signup(email, name, password, num_stage):
+def do_signup(email, name, password, num_stage):
   print(email, name, password, num_stage)
-  if name is None or name.strip() == "":
-    return "Entrez un nom SVP !"
-  
   pwhash = hash_password(password, bcrypt.gensalt())
+  print("add_user_if_missing email : ", email)  
 
-
-    
-  # Add the user in a transaction, to make sure there is only ever one user in this database
-  # with this email address. The transaction might retry or abort, so wait until after it's
-  # done before sending the email.
-  @tables.in_transaction
-  def add_user_if_missing():
-    print("add_user_if_missing email : ", email)  
-    user = app_tables.users.get(email=email)
-    
-    if user is None:   # user not created yet
-      print("non existant",user['email'])   
-      api = mk_api_key()
-      date_heure = french_zone.time_french_zone()
-      user = app_tables.users.add_row(email=email.lower(), enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, stage_num_temp=int(num_stage))
-      print("création user", user['email'])
-      return user
-    else:
-      print("existant",user['email']) 
-      return "Cet adresse mail est déjà enregistrée par nos services. Essayez plutôt de vous connecter."
+  user = app_tables.users.get(email=email)
+  if user is None:   # user not created yet
+    print("non existant")   
+    api = mk_api_key()
+    date_heure = french_zone.time_french_zone()
   
-  _send_email_confirm_link(email)
-  # No error = success
-  return None
+    user = app_tables.users.add_row(email=email.lower(), enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, stage_num_temp=int(num_stage))
+    print("création user", user['email'])
+    
+    return user
+  else:
+    print("existant",user['email']) 
+    return "Cet adresse mail est déjà enregistrée par nos services. Essayez plutôt de vous connecter."
+  
+
   
 # for Pw reset or new user email confirmation  
 # is the Api key in URL matches the table API     

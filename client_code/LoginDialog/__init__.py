@@ -41,7 +41,7 @@ class LoginDialog(LoginDialogTemplate):
       mel = self.email_box.text
       mel = mel.lower()
       self.email_box.text = mel
-      alert("LOGIN DIALOG", mel)
+      
 
 
   

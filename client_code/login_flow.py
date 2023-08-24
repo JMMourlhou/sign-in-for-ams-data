@@ -87,7 +87,7 @@ def signup_with_form(num_stage):
       d.signup_err_lbl.text = "Le nom n'est pas rentré !"
       return 
         
-    err = anvil.server.call('_do_signup', d.email_box.text, d.name_box.text, d.password_box.text, num_stage)
+    err = anvil.server.call('do_signup', d.email_box.text, d.name_box.text, d.password_box.text, num_stage)
     if err is not None:
       d.signup_err_lbl.text = err
       d.signup_err_lbl.visible = True
