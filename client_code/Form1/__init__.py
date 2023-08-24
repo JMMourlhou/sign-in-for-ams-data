@@ -26,7 +26,7 @@ class Form1(Form1Template):
     self.num_stage = num_stage  
     self.h=h
     #alert(h)
-    if len(h)!=0:  # a URL from a confirm/reset_pw mail was sent to main app
+    if len(h)!=0:  # a URL from a confirm/reset_pw mail/qr code was sent to main app
         url_from_mail.confirm(h, num_stage) 
             
     self.update_login_status()

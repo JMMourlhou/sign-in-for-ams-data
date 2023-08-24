@@ -38,9 +38,9 @@ class LoginDialog(LoginDialogTemplate):
   def email_box_lost_focus(self, **event_args):
       """This method is called when the TextBox loses focus"""
       # MISE EN MINUSCULE DE L'ADRESSE MAIL
-      mel = self.email_box.text
-      mel = mel.lower()
-      self.email_box.text = mel
+      #mel = self.email_box.text
+      #mel = mel.lower()
+      #self.email_box.text = mel
       
 
 
