@@ -25,23 +25,26 @@ def login_with_form(allow_cancel=True):
   while anvil.users.get_user() is None:
     choice = alert(d, title="", dismissible=allow_cancel, buttons=BUTTONS)
     print("choice:", choice)
-    if choice == 'login' and d.email_box.text != "":
-        #d.email_box.text = d.email_box.text.lower()
+    if choice == 'login':
+        if d.email_box.text == "":
+            alert("Rentrez le mail !")
+            return
+        
         mel = d.email_box.text
         mel = mel.lower()
         d.email_box.text = mel
         
+        user_row = None
+        user_row = anvil.users.login_with_email(d.email_box.text, d.password_box.text, remember=True)
         try:
-            user_row=anvil.users.login_with_email(d.email_box.text, d.password_box.text, remember=True)
-            anvil.server.call("force_log",user_row)
+            user=anvil.server.call("force_log",user_row)
             return_to_mother_app.calling_mother_app(2)
+        except:
+            print("Email ou mot de passe erroné !")
+            self.raise_event('x-close-alert', value='login')
+            return_to_mother_app.calling_mother_app(2)    
         
-        except anvil.users.EmailNotConfirmed:
-            d.confirm_lnk.visible = True
-        except anvil.users.AuthenticationFailed as e:
-            d.login_err_lbl.text = str(e.args[0])
-            d.login_err_lbl.visible = True
-        
+            
     elif choice == 'reset_password':
       fp = ForgottenPasswordDialog(d.email_box.text)
       
@@ -49,8 +52,8 @@ def login_with_form(allow_cancel=True):
         #fp.email_box.text = fp.email_box.text.lower()
         if anvil.server.call('_send_password_reset', fp.email_box.text):
           alert(f"Un mail de réinitilisation du mot de passe a été envoyé à {fp.email_box.text}.")
-          #allow_cancel=True
-          break  # I come out from the loop
+          return_to_mother_app.calling_mother_app()
+          #break  # I come out from the loop
         else:
           alert("Cet utilisateur n'existe pas dans nos fichiers.")
         
@@ -61,10 +64,10 @@ def login_with_form(allow_cancel=True):
         alert(f"'{d.email_box.text}' n'est pas un utilisateur dont le mail n'est pas encore confirmé.")
       d.confirm_lnk.visible = False
     
-    elif choice is None and allow_cancel:
-      break
-
-      
+    elif choice is None:  #cancel
+      self.raise_event('x-close-alert', value='login')
+      return_to_mother_app.calling_mother_app(2)
+        
 def signup_with_form(num_stage):
   d = SignupDialog()
 
