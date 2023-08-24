@@ -93,24 +93,27 @@ def _do_signup(email, name, password, num_stage):
     return "Entrez un nom SVP !"
   
   pwhash = hash_password(password, bcrypt.gensalt())
-  
+
+
+    
   # Add the user in a transaction, to make sure there is only ever one user in this database
   # with this email address. The transaction might retry or abort, so wait until after it's
   # done before sending the email.
-
   @tables.in_transaction
   def add_user_if_missing():
+    print("add_user_if_missing email : ", email)  
     user = app_tables.users.get(email=email)
+    
     if user is None:   # user not created yet
+      print("non existant",user['email'])   
       api = mk_api_key()
       date_heure = french_zone.time_french_zone()
       user = app_tables.users.add_row(email=email.lower(), enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, stage_num_temp=int(num_stage))
       print("création user", user['email'])
       return user
-    
-  user = add_user_if_missing()
-  if user is None:
-    return "Cet adresse mail est déjà enregistrée par nos services. Essayez plutôt de vous connecter."
+    else:
+      print("existant",user['email']) 
+      return "Cet adresse mail est déjà enregistrée par nos services. Essayez plutôt de vous connecter."
   
   _send_email_confirm_link(email)
   # No error = success
