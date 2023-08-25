@@ -99,9 +99,9 @@ def signup_with_form(num_stage):
     if err is not None:
       alert(err)  
     else:
-        anvil.server.call("_send_email_confirm_link", d.email_box.text)
-        alert(f"Nous vous avons envoyé un mail de confirmation\nà l'adresse: {d.email_box.text}.\n\nVérifiez votre mail, et cliquez sur le lien.")
-    return
+        if anvil.server.call("_send_email_confirm_link", d.email_box.text):
+            alert(f"Nous vous avons envoyé un mail de confirmation\n à l'adresse: {d.email_box.text}.\n\nVérifiez votre mail, et cliquez sur le lien.")
+    break
 
     
 def do_email_reset(h):

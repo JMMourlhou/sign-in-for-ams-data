@@ -59,9 +59,10 @@ class SignupDialog(SignupDialogTemplate):
       if self.email_box.text == "":
         alert("Entrez votre mail svp !")
         return
-      # mail en minuscule    
+      # mail en minuscule    et strip
       mel = self.email_box.text
       mel = mel.lower()
+      mel = mel.strip()
       self.email_box.text = mel
       
       # @ ds mail ?

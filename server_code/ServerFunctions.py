@@ -9,8 +9,7 @@ import anvil.server
 
 from anvil.http import url_encode
 import bcrypt
-#from random import SystemRandom
-#random = SystemRandom()
+
 import uuid   # this library generates codes (API keys for exemple)
 import sys
 from . import french_zone # importation du module pour le calcul du jour / heure du sign in
