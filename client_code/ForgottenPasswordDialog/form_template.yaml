@@ -18,7 +18,7 @@ components:
   layout_properties:
     col_widths: {}
     grid_position: FPJLEP,BNCRQY
-  event_bindings: {pressed_enter: close_alert}
+  event_bindings: {pressed_enter: close_alert, lost_focus: email_box_lost_focus}
 - type: Label
   properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
     visible: true, text: 'Nous vous envoyons un lien pour réinitialiser votre mot

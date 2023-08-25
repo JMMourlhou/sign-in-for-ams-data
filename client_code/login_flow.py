@@ -5,7 +5,6 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-
 from LoginDialog import LoginDialog
 from SignupDialog import SignupDialog
 from ForgottenPasswordDialog import ForgottenPasswordDialog
@@ -43,8 +42,7 @@ def login_with_form(allow_cancel=True):
             print("Email ou mot de passe erroné !")
             self.raise_event('x-close-alert', value='login')
             return_to_mother_app.calling_mother_app(2)    
-        
-            
+           
     elif choice == 'reset_password':
       fp = ForgottenPasswordDialog(d.email_box.text)
       
@@ -65,8 +63,8 @@ def login_with_form(allow_cancel=True):
       d.confirm_lnk.visible = False
     
     elif choice is None:  #cancel
-      self.raise_event('x-close-alert', value='login')
-      return_to_mother_app.calling_mother_app(2)
+      break # je sors de la boucle while
+      
         
 def signup_with_form(num_stage):
   d = SignupDialog()
