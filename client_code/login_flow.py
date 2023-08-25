@@ -33,16 +33,23 @@ def login_with_form(allow_cancel=True):
         mel = mel.lower()
         d.email_box.text = mel
         
-        user_row = None
-        user_row = anvil.users.login_with_email(d.email_box.text, d.password_box.text, remember=True)
         try:
-            user=anvil.server.call("force_log",user_row)
+            user=anvil.users.login_with_email(d.email_box.text, d.password_box.text, remember=True)
+            user=anvil.server.call("force_log",user)
             return_to_mother_app.calling_mother_app(2)
-        except:
-            print("Email ou mot de passe erroné !")
-            self.raise_event('x-close-alert', value='login')
-            return_to_mother_app.calling_mother_app(2)    
-           
+        except anvil.users.EmailNotConfirmed:
+            alert("Votre mail n'est pas confirmé, Vérifiez le mail que nous vs avions envoyé !")
+            if anvil.server.call('_send_email_confirm_link', d.email_box.text):
+                alert(f"Un nouvel email de confirmation a été envoyé à {d.email_box.text}.")
+            break
+        except anvil.users.AuthenticationFailed as e:
+            alert(f"Email ou mot de passe erroné, Ré-entrez les !")
+            self.raise_event('x-close-alert', value='login')  
+            break
+            
+        
+        
+            
     elif choice == 'reset_password':
       fp = ForgottenPasswordDialog(d.email_box.text)
       
