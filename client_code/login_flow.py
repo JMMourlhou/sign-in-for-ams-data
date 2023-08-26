@@ -42,7 +42,7 @@ def login_with_form(allow_cancel=True):
             alert("Votre mail n'est pas confirmé, Vérifiez le mail que nous vs avions envoyé !")
             if anvil.server.call('_send_email_confirm_link', d.email_box.text):
                 alert(f"Un nouvel email de confirmation a été envoyé à {d.email_box.text}.")
-            break
+                return_to_mother_app.calling_mother_app()
         except anvil.users.AuthenticationFailed as e:
             alert(f"Email ou mot de passe erroné, Ré-entrez les !")
             break
@@ -54,8 +54,7 @@ def login_with_form(allow_cancel=True):
         #fp.email_box.text = fp.email_box.text.lower()
         if anvil.server.call('_send_password_reset', fp.email_box.text):
           alert(f"Un mail de réinitilisation du mot de passe a été envoyé à {fp.email_box.text}.")
-          return_to_mother_app.calling_mother_app()
-          #break  # I come out from the loop
+          break  # I come out from the loop
         else:
           alert("Cet utilisateur n'existe pas dans nos fichiers.")
         
@@ -98,7 +97,7 @@ def signup_with_form(num_stage):
     else:
         if anvil.server.call("_send_email_confirm_link", d.email_box.text):
             alert(f"Nous vous avons envoyé un mail de confirmation\n à l'adresse: {d.email_box.text}.\n\nVérifiez votre mail, et cliquez sur le lien.")
-    break
+            return_to_mother_app.calling_mother_app()
 
     
 def do_email_reset(h):
