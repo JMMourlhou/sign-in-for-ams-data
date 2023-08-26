@@ -31,6 +31,7 @@ def login_with_form(allow_cancel=True):
         
         mel = d.email_box.text
         mel = mel.lower()
+        mel = mel.strip()
         d.email_box.text = mel
         
         try:
@@ -44,12 +45,8 @@ def login_with_form(allow_cancel=True):
             break
         except anvil.users.AuthenticationFailed as e:
             alert(f"Email ou mot de passe erroné, Ré-entrez les !")
-            self.raise_event('x-close-alert', value='login')  
             break
-            
-        
-        
-            
+           
     elif choice == 'reset_password':
       fp = ForgottenPasswordDialog(d.email_box.text)
       

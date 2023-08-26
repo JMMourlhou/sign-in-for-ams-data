@@ -30,7 +30,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: GMACWM,CAOLPZ
-    event_bindings: {pressed_enter: focus_password, lost_focus: email_box_lost_focus}
+    event_bindings: {pressed_enter: focus_password}
   - type: TextBox
     properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: Mot de passe,
       border: '', enabled: true, foreground: 'theme:Secondary 500', visible: true,
