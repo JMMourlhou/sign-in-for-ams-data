@@ -74,10 +74,55 @@ db_schema:
     - name: confirmed_email
       admin_ui: {width: 200}
       type: bool
-    - name: first_name
+    - name: api_key
       admin_ui: {width: 200}
       type: string
-    - name: api_key
+    - name: accept_data
+      admin_ui: {width: 200}
+      type: bool
+    - name: admin
+      admin_ui: {width: 200}
+      type: bool
+    - name: adresse_code_postal
+      admin_ui: {width: 200}
+      type: string
+    - name: adresse_rue
+      admin_ui: {width: 279}
+      type: string
+    - name: adresse_ville
+      admin_ui: {width: 200}
+      type: string
+    - name: code_postal_naissance
+      admin_ui: {width: 200}
+      type: string
+    - name: commentaires
+      admin_ui: {width: 200}
+      type: string
+    - name: date_naissance
+      admin_ui: {width: 200}
+      type: date
+    - name: email2
+      admin_ui: {width: 200}
+      type: string
+    - name: nom
+      admin_ui: {width: 200}
+      type: string
+    - name: pays_naissance
+      admin_ui: {width: 200}
+      type: string
+    - name: photo
+      admin_ui: {width: 200}
+      type: media
+    - name: prenom
+      admin_ui: {width: 200}
+      type: string
+    - name: stage_num_temp
+      admin_ui: {width: 200}
+      type: number
+    - name: tel
+      admin_ui: {width: 200}
+      type: string
+    - name: ville_naissance
       admin_ui: {width: 200}
       type: string
 renamed: true
