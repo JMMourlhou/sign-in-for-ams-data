@@ -73,7 +73,7 @@ def signup_with_form(num_stage):
   d = SignupDialog()
 
   while True:
-    if not alert(d, title="Création de votre compte", dismissible=True, buttons=[("S'enregistrer", True, 'primary'), ("Annuler", False)]):
+    if not alert(d, title="Création de votre compte", dismissible=True, buttons=[("S'enregistrer", True, 'primary')]):
     
         h={}
         h = anvil.get_url_hash()
@@ -81,7 +81,7 @@ def signup_with_form(num_stage):
         if len(h)==0 :  # vient de l'app AMSData, choix sign up
             return
         else:   # the URL from qr code has openned this app
-            alert("sign up from qr code ")
+            pass
             
             
     if d.password_box.text == "":
