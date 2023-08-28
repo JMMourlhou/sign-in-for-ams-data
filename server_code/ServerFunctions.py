@@ -88,8 +88,9 @@ def hash_password(password, salt):
 # with this email address. The transaction might retry or abort, so wait until after it's
 # done before sending the email.
 """
-@tables.in_transaction
+
 @anvil.server.callable
+@anvil.tables.in_transaction
 def do_signup(email, name, password, num_stage):
   print(email, name, password, num_stage)
   pwhash = hash_password(password, bcrypt.gensalt())
