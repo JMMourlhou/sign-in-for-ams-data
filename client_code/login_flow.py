@@ -10,7 +10,7 @@ from SignupDialog import SignupDialog
 from ForgottenPasswordDialog import ForgottenPasswordDialog
 from PasswordResetDialog import PasswordResetDialog
 from . import return_to_mother_app
-
+from anvil import open_form
 
 def login_with_form(allow_cancel=True):
   """Log in by popping up the custom LoginDialog"""
@@ -62,7 +62,7 @@ def login_with_form(allow_cancel=True):
       if anvil.server.call('_send_email_confirm_link', d.email_box.text):
         alert(f"Un nouvel email de confirmation a été envoyé à {d.email_box.text}.")
       else:
-        alert(f"'{d.email_box.text}' n'est pas un utilisateur dont le mail n'est pas encore confirmé.")
+        alert(f"'{d.email_box.text}', cette adresse est déjà confirmée.")
       d.confirm_lnk.visible = False
     
     elif choice is None:  #cancel
@@ -73,9 +73,17 @@ def signup_with_form(num_stage):
   d = SignupDialog()
 
   while True:
-    if not alert(d, title="Création de votre compte", buttons=[("S'enregistrer", True, 'primary'), ("Annuler", False)]):
-      return
-        
+    if not alert(d, title="Création de votre compte", dismissible=True, buttons=[("S'enregistrer", True, 'primary'), ("Annuler", False)]):
+    
+        h={}
+        h = anvil.get_url_hash()
+        print(f"h ds login flow,signup: {h}")
+        if len(h)==0 :  # vient de l'app AMSData, choix sign up
+            return
+        else:   # the URL from qr code has openned this app
+            alert("sign up from qr code ")
+            
+            
     if d.password_box.text == "":
       d.signup_err_lbl.text = "Le mot de passe n'est pas rentré !"
       return

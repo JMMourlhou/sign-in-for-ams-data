@@ -21,6 +21,7 @@ def confirm(h, num_stage=0):
     print(f"l'Url est: {h}")
     to_be_confirmed_email=""
 
+    
     #test1: si h est type dict
     if not isinstance(h, dict):  
         print("URL not a dict type")
