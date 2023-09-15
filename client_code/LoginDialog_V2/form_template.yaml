@@ -23,7 +23,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: GMACWM,CAOLPZ
-    event_bindings: {pressed_enter: focus_password}
+    event_bindings: {lost_focus: email_box_lost_focus}
   - type: TextBox
     properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: Mot de passe,
       border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: '',
@@ -33,7 +33,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: BKNGUM,PQKVYZ
-    event_bindings: {}
+    event_bindings: {lost_focus: password_box_lost_focus, pressed_enter: password_box_pressed_enter}
   - type: Link
     properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: red,
       visible: true, text: 'Mot de passe oublié ?', font_size: null, wrap_on: mobile,
