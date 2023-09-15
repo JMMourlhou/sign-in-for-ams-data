@@ -73,6 +73,30 @@ class LoginDialog_V2(LoginDialog_V2Template):
         """This method is called when the user presses Enter in this text box"""
         self.button_validation_click()
 
+    def reset_pw_link_click(self, **event_args):
+        """This method is called when the link is clicked"""
+        # --------------------------------Tests sur mail
+        # mail vide ?
+        if self.email_box.text == "":
+            alert("Entrez votre mail svp !")
+            return
+        # mail en minuscule    et strip
+        mel = self.email_box.text
+        mel = mel.lower()
+        mel = mel.strip()
+        self.email_box.text = mel
+        
+        # @ ds mail ?
+        if not "@" in self.email_box.text:
+            alert("Entrez un mail valide !")
+            self.email_box.focus()
+            return
+            
+        if anvil.server.call('_send_password_reset', self.email_box.text):
+          alert(f"Un mail de réinitilisation du mot de passe vous a été envoyé à {self.email_box.text}.")
+          return_to_mother_app.calling_mother_app()
+
+
 
         
         

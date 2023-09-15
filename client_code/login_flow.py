@@ -53,7 +53,7 @@ def login_with_form(allow_cancel=True):
       if alert(fp, title='Mot de passe oublié', buttons=[("Le réinitialiser", True, "primary"), ("Annuler", False)]):
         #fp.email_box.text = fp.email_box.text.lower()
         if anvil.server.call('_send_password_reset', fp.email_box.text):
-          alert(f"Un mail de réinitilisation du mot de passe a été envoyé à {fp.email_box.text}.")
+          alert(f"Un mail de réinitilisation du mot de passe vous a été envoyé à {fp.email_box.text}.")
           break  # I come out from the loop
         else:
           alert("Cet utilisateur n'existe pas dans nos fichiers.")
