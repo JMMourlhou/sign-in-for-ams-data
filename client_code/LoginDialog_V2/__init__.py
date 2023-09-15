@@ -11,7 +11,7 @@ class LoginDialog_V2(LoginDialog_V2Template):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
-        self.image_1.visible = False
+
         # Any code you write here will run when the form opens.
         self.email_box.focus()
 
@@ -34,3 +34,16 @@ class LoginDialog_V2(LoginDialog_V2Template):
     def form_show(self, **event_args):
         """This method is called when the column panel is shown on the screen"""
         self.email_box.focus()
+
+    def button_validation_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        alert("validation")
+
+    def button_retour_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        from AMS_Data.Main import Main
+        
+        Main.content_panel.clear()
+        return
+        
+
