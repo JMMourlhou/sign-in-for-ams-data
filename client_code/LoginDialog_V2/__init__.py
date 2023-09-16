@@ -16,8 +16,6 @@ class LoginDialog_V2(LoginDialog_V2Template):
         # Any code you write here will run when the form opens.
         self.email_box.focus()
 
-    
-
     def email_box_lost_focus(self, **event_args):
         """This method is called when the TextBox loses focus"""
         pass

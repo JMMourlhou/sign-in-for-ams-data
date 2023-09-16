@@ -15,7 +15,7 @@ class SignupDialog(SignupDialogTemplate):
     self.password_box.text = "" 
     self.password_repeat_box.text = ""
     
-    self.image_1.visible = False
+    
     # Any code you write here will run when the form opens.
     self.focus_email()
       
