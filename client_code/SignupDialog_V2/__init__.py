@@ -16,9 +16,9 @@ class SignupDialog_V2(SignupDialog_V2Template):
         self.email_box.text = ""
         self.password_box.text = ""
         self.password_repeat_box.text = ""
+        self.num_stage = num_stage
 
         # Any code you write here will run when the form opens.
-        self.focus_email()
 
     def button_validation_click(self, **event_args):
         """This method is called when the button is clicked"""
@@ -51,7 +51,14 @@ class SignupDialog_V2(SignupDialog_V2Template):
             alert("Entrez un mail valide !")
             return
 
+        if self.password_box.text != self.password_repeat_box.text:
+            alert("Les mots de passe sont différents !")
+            return
         # ------------------------------------------------------------   VALIDATION 
+        err = anvil.server.call('do_signup', self.email_box.text, self.name_box.text, self.password_box.text, self.num_stage)
+        if err != None:
+            alert(err)
+            return_to_mother_app.calling_mother_app()
         if anvil.server.call('_send_email_confirm_link', self.email_box.text):
             alert(f"Un email de confirmation vous a été envoyé à {self.email_box.text}.")
         else:
@@ -59,10 +66,15 @@ class SignupDialog_V2(SignupDialog_V2Template):
             """
             A FAIRE envoi en connection
             """
-            return_to_mother_app.calling_mother_app()
+        return_to_mother_app.calling_mother_app()
             
     def button_retour_click(self, **event_args):
         """This method is called when the button is clicked"""
         return_to_mother_app.calling_mother_app()
+
+    def password_repeat_box_pressed_enter(self, **event_args):
+        """This method is called when the user presses Enter in this text box"""
+        self.button_validation_click()
+
 
 

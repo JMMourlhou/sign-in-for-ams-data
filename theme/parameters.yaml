@@ -6,6 +6,7 @@ roles:
   components: [Label]
 - name: input-prompt
   components: [Label]
+  display_in_toolbox: false
 - name: headline
   components: [Label]
   displayInToolbox: true
@@ -13,6 +14,8 @@ roles:
   display_in_toolbox: true
 - name: display-4
   components: [Label]
+  display_in_toolbox: true
+  title: display-4
 - name: card
   components: [ColumnPanel, LinearPanel, XYPanel, RepeatingPanel]
   displayInToolbox: true
@@ -30,6 +33,10 @@ roles:
   components: [TextBox]
 - name: selected
   components: [Link]
+- name: outlined-card
+  components: [ColumnPanel]
+  display_in_toolbox: true
+  title: outlined-card
 color_scheme:
   preset_groups:
   - name: Primary Colour

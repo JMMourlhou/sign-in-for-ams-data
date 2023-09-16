@@ -10,10 +10,10 @@ components:
     col_widths: {}
     grid_position: YNYMAK,MFNRBE
 - type: TextBox
-  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-    border: '', enabled: true, foreground: 'theme:Primary 500', visible: true, text: '',
+  properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: '',
     font_size: null, font: '', spacing_above: none, type: text, spacing_below: small,
-    italic: false, background: 'theme:Primary 700', bold: false, underline: false}
+    italic: false, background: 'theme:Primary', bold: false, underline: false}
   name: email_box
   layout_properties:
     col_widths: {}

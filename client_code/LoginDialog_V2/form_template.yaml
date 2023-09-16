@@ -4,7 +4,7 @@ container:
   event_bindings: {}
 components:
 - type: ColumnPanel
-  properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+  properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: tiny, spacing_above: none, col_widths: '{}', spacing_below: none,
     background: ''}
   name: column_panel_content
