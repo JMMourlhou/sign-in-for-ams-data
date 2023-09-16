@@ -9,7 +9,7 @@ from anvil.tables import app_tables
 from .. import return_to_mother_app
 
 class SignupDialog_V2(SignupDialog_V2Template):
-    def __init__(self, num_stage=0, **properties):
+    def __init__(self, h={}, num_stage=0, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.name_box.text = ""
