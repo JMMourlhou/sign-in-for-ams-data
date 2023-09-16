@@ -11,12 +11,16 @@ from .. import return_to_mother_app
 class SignupDialog_V2(SignupDialog_V2Template):
     def __init__(self, h={}, num_stage=0, **properties):
         # Set Form properties and Data Bindings.
+        alert("sign in for ams, SignupDialog_V2")
+        alert(h)
         self.init_components(**properties)
         self.name_box.text = ""
         self.email_box.text = ""
         self.password_box.text = ""
         self.password_repeat_box.text = ""
         self.num_stage = num_stage
+
+        self.name_box.focus()
 
         # Any code you write here will run when the form opens.
 
