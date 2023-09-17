@@ -18,9 +18,8 @@ However, on the client side it is possible. """
 def confirm(h, num_stage=0):   
     if h == None:
         return
-    print(f"l'Url est: {h}")
+    print(f"l'Url est vide: {h}")
     to_be_confirmed_email=""
-
     
     #test1: si h est type dict
     if not isinstance(h, dict):  
