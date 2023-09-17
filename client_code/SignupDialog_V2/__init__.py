@@ -61,7 +61,7 @@ class SignupDialog_V2(SignupDialog_V2Template):
         err = anvil.server.call('do_signup', self.email_box.text, self.name_box.text, self.password_box.text, self.num_stage)
         if err != None:
             alert(err)
-            return_to_mother_app.calling_mother_app()
+            return_to_mother_app.calling_mother_app(1, self.num_stage)
         if anvil.server.call('_send_email_confirm_link', self.email_box.text):
             alert(f"Un email de confirmation vous a été envoyé à {self.email_box.text}.")
         else:
