@@ -12,7 +12,6 @@ mais seulement d'un module !
 """ ************************************************************************"""  
 def calling_mother_app(x=2):
     from AMS_Data.Main import Main
-    from anvil import open_form
-    #Main.content_panel.clear()
+    from anvil import open_form    #Main.content_panel.clear()
     open_form('AMS_Data.Main',x)    #x=3 si login normal
     

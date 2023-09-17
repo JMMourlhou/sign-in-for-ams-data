@@ -1,0 +1,12 @@
+container: {type: ColumnPanel}
+components:
+- type: Image
+  properties: {role: null, vertical_align: center, height: 67, tooltip: '', border: '',
+    foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: none,
+    source: _/theme/Logo%20AMS.JPG, spacing_below: small, background: 'theme:Primary
+      700', horizontal_align: center}
+  name: image_1
+  layout_properties:
+    col_widths: {}
+    grid_position: BEDDMJ,HWMOIU
+is_package: true
