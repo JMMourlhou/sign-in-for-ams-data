@@ -22,4 +22,4 @@ class url_from_mail_calls(url_from_mail_callsTemplate):
         self.init_components(**properties)
 
         # Any code you write here will run before the form opens.
-        url_from_mail.confirm(h, num_stage=0)
+        url_from_mail.confirm_or_pwreset(h, num_stage=0)

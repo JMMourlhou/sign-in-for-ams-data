@@ -10,14 +10,6 @@ from .. import login_flow
 from .. import return_to_mother_app
 from .. import url_from_mail
 
-#from AMS_Data import Module1
-"""
-Form1 est ouvert avec la variable 'nb' (test de passages)
-si x = 3 c'est une ouverture demandée par app extérieure,suite à connection d'1 user
-          pas d'envoi vers le test de l'url, 
-si x = 2 c'est une ouverture par url suite à sign in  ou  pw reset ou flash code
-          envoi vers le test de l'url pour tester si une url a ouvert Fitness'd
-"""
 class Form1(Form1Template):
   def __init__(self, h={}, num_stage=0, **properties):
     # Set Form properties and Data Bindings.
