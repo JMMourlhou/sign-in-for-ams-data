@@ -37,12 +37,12 @@ def login_with_form(allow_cancel=True):
         try:
             user=anvil.users.login_with_email(d.email_box.text, d.password_box.text, remember=True)
             user=anvil.server.call("force_log",user)
-            return_to_mother_app.calling_mother_app(2)
+            return_to_mother_app.calling_mother_app(99)    # retour et effacement du lien
         except anvil.users.EmailNotConfirmed:
             alert("Votre mail n'est pas confirmé, Vérifiez le mail que nous vs avions envoyé !")
             if anvil.server.call('_send_email_confirm_link', d.email_box.text):
                 alert(f"Un nouvel email de confirmation a été envoyé à {d.email_box.text}.")
-                return_to_mother_app.calling_mother_app()
+                return_to_mother_app.calling_mother_app(99)    # retour et effacement du lien
         except anvil.users.AuthenticationFailed as e:
             alert(f"Email ou mot de passe erroné, Ré-entrez les !")
             break

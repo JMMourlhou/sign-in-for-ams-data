@@ -44,7 +44,7 @@ def confirm(h, num_stage=0):
         
     """ mail confirmation URL  """
     if url_purpose=='confirm':
-        #alert("confirm")
+        alert("confirm")
         # Hash password in URL ?
         hpw=h["hpw"]
         if not hpw:

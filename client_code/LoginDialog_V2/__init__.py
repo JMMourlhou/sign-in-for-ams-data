@@ -5,7 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from .. import login_flow
+#from .. import login_flow
 from .. import return_to_mother_app
 
 class LoginDialog_V2(LoginDialog_V2Template):
@@ -57,7 +57,7 @@ class LoginDialog_V2(LoginDialog_V2Template):
         try:
             user=anvil.users.login_with_email(self.email_box.text, self.password_box.text, remember=True)
             user=anvil.server.call("force_log",user)
-            return_to_mother_app.calling_mother_app(2)
+            return_to_mother_app.calling_mother_app(99)    #je retourne et efface l'url
         except anvil.users.EmailNotConfirmed:
             alert("Votre mail n'est pas encore confirmé! Vérifiez le mail que nous vous envoyons de nouveau !")
             if anvil.server.call('_send_email_confirm_link', self.email_box.text):
@@ -92,7 +92,7 @@ class LoginDialog_V2(LoginDialog_V2Template):
             
         if anvil.server.call('_send_password_reset', self.email_box.text):
           alert(f"Un mail de réinitilisation du mot de passe vous a été envoyé à {self.email_box.text}.")
-          return_to_mother_app.calling_mother_app()
+          return_to_mother_app.calling_mother_app(99)     #je retourne et efface l'url
 
 
 
