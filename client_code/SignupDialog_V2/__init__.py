@@ -11,17 +11,20 @@ from .. import return_to_mother_app
 class SignupDialog_V2(SignupDialog_V2Template):
     def __init__(self, h={}, num_stage=0, **properties):
         # Set Form properties and Data Bindings.
-        alert("sign in for ams, SignupDialog_V2")
-        alert(h)
+        
         self.init_components(**properties)
         self.name_box.text = ""
         self.email_box.text = ""
         self.password_box.text = ""
         self.password_repeat_box.text = ""
         self.num_stage = num_stage
-
+        
+        alert("sign in for ams, SignupDialog_V2")
+        alert(f"num_stage {num_stage}")
+        alert(h)
+        
         # Any code you write here will run when the form opens.
-        self.name_box.focus()
+        #self.name_box.focus()
         
     def button_validation_click(self, **event_args):
         """This method is called when the button is clicked"""
@@ -69,8 +72,9 @@ class SignupDialog_V2(SignupDialog_V2Template):
             """
             A FAIRE envoi en connection
             """
-        return_to_mother_app.calling_mother_app()
-            
+        #return_to_mother_app.calling_mother_app()
+        """  ============================================================================================ """   
+
     def button_retour_click(self, **event_args):
         """This method is called when the button is clicked"""
         return_to_mother_app.calling_mother_app()
