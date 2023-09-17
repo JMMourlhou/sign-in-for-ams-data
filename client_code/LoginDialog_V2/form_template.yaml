@@ -1,7 +1,7 @@
 container:
   type: ColumnPanel
   properties: {col_widths: '{}'}
-  event_bindings: {}
+  event_bindings: {show: focus_name}
 components:
 - type: ColumnPanel
   properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
@@ -19,7 +19,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: GMACWM,CAOLPZ
-    event_bindings: {lost_focus: email_box_lost_focus}
+    event_bindings: {}
   - type: TextBox
     properties: {role: null, align: center, hide_text: true, tooltip: '', placeholder: Mot de passe,
       border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: '',
@@ -29,7 +29,7 @@ components:
     layout_properties:
       col_widths: {}
       grid_position: BKNGUM,PQKVYZ
-    event_bindings: {lost_focus: password_box_lost_focus, pressed_enter: password_box_pressed_enter}
+    event_bindings: {pressed_enter: password_box_pressed_enter}
   - type: ColumnPanel
     properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: none, col_widths: '{}',
