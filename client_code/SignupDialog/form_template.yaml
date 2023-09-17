@@ -14,7 +14,7 @@ components:
     name: spacer_2
     layout_properties: {grid_position: 'YIKGER,LZIQGV'}
   - type: TextBox
-    properties: {role: dense, align: left, hide_text: false, tooltip: '', placeholder: Nom,
+    properties: {role: dense, align: center, hide_text: false, tooltip: '', placeholder: Nom,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
       font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
       background: 'theme:Primary 700', bold: false, underline: false}
@@ -24,7 +24,7 @@ components:
       grid_position: UKEUTH,XRODCZ
     event_bindings: {pressed_enter: focus_email}
   - type: TextBox
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: email@adresse.xxx,
+    properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: email@adresse,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
       font: '', spacing_above: none, type: text, spacing_below: small, italic: false,
       background: 'theme:Primary 700', bold: false, underline: false}
@@ -38,7 +38,7 @@ components:
     name: spacer_1
     layout_properties: {grid_position: 'KMFGPG,ZMDFPB'}
   - type: TextBox
-    properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: Mot de passe,
+    properties: {role: null, align: center, hide_text: true, tooltip: '', placeholder: Mot de passe,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
       font: '', spacing_above: large, type: text, spacing_below: small, italic: false,
       background: 'theme:Primary 700', bold: false, underline: false}
@@ -48,7 +48,7 @@ components:
       grid_position: SYYTIH,DWIRGV
     event_bindings: {pressed_enter: focus_password_repeat, focus: password_box_focus}
   - type: TextBox
-    properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: Ré-entrez votre mot de passe,
+    properties: {role: null, align: center, hide_text: true, tooltip: '', placeholder: Ré-entrez votre mot de passe,
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
       font: '', spacing_above: none, type: text, spacing_below: small, italic: false,
       background: 'theme:Primary 700', bold: false, underline: false}
@@ -58,7 +58,7 @@ components:
       grid_position: QLKVSJ,ZQGDOS
     event_bindings: {pressed_enter: close_alert}
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: red,
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: red,
       visible: false, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
       spacing_below: small, italic: false, background: '', bold: true, underline: false,
       icon: ''}
