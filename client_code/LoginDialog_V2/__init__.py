@@ -59,10 +59,10 @@ class LoginDialog_V2(LoginDialog_V2Template):
             user=anvil.server.call("force_log",user)
             return_to_mother_app.calling_mother_app(2)
         except anvil.users.EmailNotConfirmed:
-            alert("Votre mail n'est pas encore confirmé! Vérifiez le mail que nous vs avions envoyé !")
+            alert("Votre mail n'est pas encore confirmé! Vérifiez le mail que nous vous envoyons de nouveau !")
             if anvil.server.call('_send_email_confirm_link', self.email_box.text):
-                alert(f"Un nouvel email de confirmation vous a été envoyé à {email_box.text}.")
-                return_to_mother_app.calling_mother_app()
+                alert(f"Un nouvel email de confirmation vous a été envoyé à {self.email_box.text}.")
+                return_to_mother_app.calling_mother_app(99)   #je retourne et efface l'url
         except anvil.users.AuthenticationFailed as e:
             alert(f"Email ou mot de passe erroné, Ré-entrez les !")
             return
