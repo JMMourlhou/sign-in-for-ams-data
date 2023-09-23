@@ -43,7 +43,7 @@ class url_from_mail_PW_reset(url_from_mail_PW_resetTemplate):
     def button_retour_click(self, **event_args):
         """This method is called when the button is clicked"""
         from .. import return_to_mother_app
-        return_to_mother_app.calling_mother_app() 
+        return_to_mother_app.calling_mother_app(99) 
 
 
 
