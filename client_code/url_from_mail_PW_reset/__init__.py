@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
+
 class url_from_mail_PW_reset(url_from_mail_PW_resetTemplate):
     def __init__(self,email, api_key, **properties):
         # Set Form properties and Data Bindings.
@@ -32,7 +33,7 @@ class url_from_mail_PW_reset(url_from_mail_PW_resetTemplate):
             r=anvil.server.call("_perform_password_reset",self.email, self.api_key, self.password_box.text)
             if r:
                 alert("Vous pouvez vous connecter avec le nouveau mot de passe !")
-                return
+                self.button_retour_click()
             else:
                 alert("Erreur, mot de passe non modifié !")
         else:
@@ -41,7 +42,8 @@ class url_from_mail_PW_reset(url_from_mail_PW_resetTemplate):
 
     def button_retour_click(self, **event_args):
         """This method is called when the button is clicked"""
-        return_to_mother_app.calling_mother_app()
+        from .. import return_to_mother_app
+        return_to_mother_app.calling_mother_app() 
 
 
 

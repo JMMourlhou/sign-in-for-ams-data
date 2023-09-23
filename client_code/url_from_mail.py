@@ -40,7 +40,7 @@ def confirm_or_pwreset(h, num_stage=0):
         
     """ ***************************** URL du mail de password reset  """
     if url_purpose=='pwreset':
-        alert("pwreset, going to form 'url_from_mail_PW_reset'")
+        #alert("pwreset, going to form 'url_from_mail_PW_reset'")
         #login_flow.do_email_reset(h)  
         from . url_from_mail_PW_reset import url_from_mail_PW_reset
         open_form("url_from_mail_PW_reset",h["email"],h["api"])
