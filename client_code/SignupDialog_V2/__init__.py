@@ -19,8 +19,8 @@ class SignupDialog_V2(SignupDialog_V2Template):
         self.password_repeat_box.text = ""
         self.num_stage = num_stage
         
-        alert(f"SignupDialog_V2, num_stage {self.num_stage}")
-        alert(h)
+        #alert(f"SignupDialog_V2, num_stage {self.num_stage}")
+        #alert(h)
         
         # Any code you write here will run when the form opens.
         
