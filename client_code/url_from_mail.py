@@ -47,7 +47,7 @@ def confirm_or_pwreset(h, num_stage=0):
         
     """ ***************************** URL du mail de confirmation après sign in  """
     if url_purpose=='confirm':
-        alert("confirm")
+        #alert("confirm")
         # Hash password in URL ?
         hpw=h["hpw"]
         if not hpw:
