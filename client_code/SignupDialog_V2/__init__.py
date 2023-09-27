@@ -64,18 +64,19 @@ class SignupDialog_V2(SignupDialog_V2Template):
             return
         # ------------------------------------------------------------   VALIDATION 
         err = anvil.server.call('do_signup', self.email_box.text, self.name_box.text, self.password_box.text, self.num_stage)
-        if err != None:
+        if err != None:    #erreur, on revient ds mother app
             alert(err)
-            return_to_mother_app.calling_mother_app(1, self.num_stage)
-        if anvil.server.call('_send_email_confirm_link', self.email_box.text):
-            alert(f"Un email de confirmation vous a été envoyé à {self.email_box.text}.")
-        else:
-            alert(f"'{d.email_box.text}', cette adresse est déjà confirmée. Connectez-vous !")
-            """
-            A FAIRE envoi en connection
-            """
-        #return_to_mother_app.calling_mother_app()
-        """  ============================================================================================ """   
+            return_to_mother_app.calling_mother_app(99)
+        else:           #Pas d'erreur, on envoi le mail de confirmation
+            if anvil.server.call('_send_email_confirm_link', self.email_box.text):
+                alert(f"Un email de confirmation vous a été envoyé à {self.email_box.text}.")
+            else:
+                alert(f"'{d.email_box.text}', cette adresse est déjà confirmée. Connectez-vous !")
+                """
+                A FAIRE envoi en connection
+                """
+            #return_to_mother_app.calling_mother_app()
+            """  ============================================================================================ """   
 
     def button_retour_click(self, **event_args):
         """This method is called when the button is clicked"""
