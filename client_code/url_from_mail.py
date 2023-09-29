@@ -61,7 +61,7 @@ def confirm_or_pwreset(h, num_stage=0):
             alert(msg)
         except:
         #if not user:
-            alert("Essayez de vous connecter.")
+            alert("Votre mail existe déjà ! Essayez de vous connecter.")
     
     anvil.users.logout()       #logging out the user
-    #return_to_mother_app.calling_mother_app()
+    return_to_mother_app.calling_mother_app(99)
