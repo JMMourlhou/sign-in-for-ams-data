@@ -38,6 +38,7 @@ def search(to_be_confirmed_email, hpw):
         new_user_row['confirmed_email']=True                              #je mets à jour la column confirmed email
         new_user_row["signed_up"]=french_zone.time_french_zone()
         new_user_row["last_login"]=new_user_row["signed_up"]
+        new_user_row['histo']={}
         # Forcing my new user to login
         user=anvil.users.force_login(new_user_row)
         print(user["nom"])
