@@ -125,4 +125,7 @@ db_schema:
     - name: ville_naissance
       admin_ui: {width: 200}
       type: string
+    - name: histo
+      admin_ui: {width: 200}
+      type: simpleObject
 renamed: true
