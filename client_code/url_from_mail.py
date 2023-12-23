@@ -59,9 +59,19 @@ def confirm_or_pwreset(h, num_stage=0):
             #Displaying the confirm alert 
             msg="Mr/Mme "+user["nom"]+", votre mail est confirmé, connectez-vous avec votre mail et mot de passe."
             alert(msg)
-        except:
-        #if not user:
-            alert("Votre mail existe déjà ! Essayez de vous connecter.")
-    
+        except anvil.users.EmailNotConfirmed:   # pas confirmé ?
+            alert("Votre mail est connu par nos services mais n'est pas confirmé, cliquez le dernier lien envoyé par mail.")
+            if anvil.server.call('_send_email_confirm_link', self.email_box.text):
+                alert(f"Un nouvel email de confirmation vous a été envoyé à {self.email_box.text}.")
+        except:  #user non enregistré
+             alert("Votre mail est inconnu par nos services ou mal saisi, vérifiez le, sinon, flashez un code d'inscription ou Créez un compte")
+            
     anvil.users.logout()       #logging out the user
     return_to_mother_app.calling_mother_app(99)
+
+
+
+# This code displays an Anvil alert, rather than
+# the default red box, when an error occurs.
+def error_handler(err):
+  alert(str(err), title="An error has occurred")    
