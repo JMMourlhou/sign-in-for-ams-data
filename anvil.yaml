@@ -80,9 +80,6 @@ db_schema:
     - name: accept_data
       admin_ui: {width: 200}
       type: bool
-    - name: admin
-      admin_ui: {width: 200}
-      type: bool
     - name: adresse_code_postal
       admin_ui: {width: 200}
       type: string
@@ -116,8 +113,8 @@ db_schema:
     - name: prenom
       admin_ui: {width: 200}
       type: string
-    - name: stage_num_temp
-      admin_ui: {width: 200}
+    - name: temp
+      admin_ui: {order: 23, width: 200}
       type: number
     - name: tel
       admin_ui: {width: 200}
@@ -128,4 +125,7 @@ db_schema:
     - name: histo
       admin_ui: {width: 200}
       type: simpleObject
+    - name: role
+      admin_ui: {width: 96}
+      type: string
 renamed: true
