@@ -122,10 +122,13 @@ db_schema:
     - name: ville_naissance
       admin_ui: {width: 200}
       type: string
-    - name: histo
-      admin_ui: {width: 200}
-      type: simpleObject
     - name: role
       admin_ui: {width: 96}
+      type: string
+    - name: temp2
+      admin_ui: {width: 200}
+      type: string
+    - name: temp3
+      admin_ui: {width: 200}
       type: string
 renamed: true

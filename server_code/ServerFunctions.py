@@ -102,7 +102,7 @@ def do_signup(email, name, password, num_stage):
     api = mk_api_key()
     date_heure = french_zone.time_french_zone()
   
-    user = app_tables.users.add_row(email=email.lower(),role="S", enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, temp=int(num_stage), histo={})
+    user = app_tables.users.add_row(email=email.lower(),role="S", enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, temp=int(num_stage))
     print("création user", user['email'])
     err = None # pas d'erreur
   else:  # erreur 
