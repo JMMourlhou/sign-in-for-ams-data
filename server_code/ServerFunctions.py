@@ -19,8 +19,10 @@ from datetime import datetime
 """ Création de la clef API si non déjà créée"""
 def mk_api_key():
     user_api_key = str(uuid.uuid4())   # Création de l'identifiant unique et transformation en chaîne
-    print(f"UUID  généré: {user_api_key}")
+    #print(f"UUID  généré: {user_api_key}")
     return user_api_key
+
+
 
 """ demande de chgt de Password """    
 @anvil.server.callable
@@ -30,7 +32,8 @@ def _send_password_reset(email):
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None:
     logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
-    anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Reinitilisez votre mot de passe", html=f"""
+    anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Reinitilisez votre mot de passe",
+html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
 <b>Mme/Mr {user["nom"]},</b><br>
 <br>
@@ -45,7 +48,10 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 <b>JMM Formation & Services</b> <br>
 {var_globales.mon_mail} <br>
 """)
+      
     return True
+
+
 
 """Sending the email confirmation link: the new user's email must be confirmed"""
 @anvil.server.callable
@@ -54,7 +60,8 @@ def _send_email_confirm_link(email):
   logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None and not user['confirmed_email']:  # User table, Column confirmed_email not checked/True
-        anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Confirmation de votre adresse email", html=f"""
+        anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Confirmation de votre adresse email",
+html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
 <b>Mme/Mr {user["nom"]},</b><br>
 <br>
@@ -68,6 +75,8 @@ Afin de confirmer votre adresse mail, <b>clickez le lien ci-dessous:</b><br>
 {var_globales.mon_mail} <br>
 """)
   return True
+
+
 
 
 def hash_password(password, salt):
@@ -110,7 +119,8 @@ def do_signup(email, name, password, num_stage):
     err = "Cet adresse mail est déjà enregistrée par nos services. Essayez plutôt de vous connecter."
   return err
 
-  
+
+
 # for Pw reset or new user email confirmation  
 # is the Api key in URL matches the table API     
 def get_user_if_key_correct(email, api_key):
@@ -123,14 +133,20 @@ def get_user_if_key_correct(email, api_key):
       return True, user_row
   else:
       return False, None
-        
+
+
+
+
 # is the Api key in URL matches the table API
 @anvil.server.callable
 def _is_password_key_correct(email, api_key):
   test_2api_identical = False  
   test_2api_identical = get_user_if_key_correct(email, api_key)
   return test_2api_identical  #True if 2 apis identicals
-    
+
+
+
+
 """ ************************************************************************** """
 """     PASS WORD RESET                                                        """    
 """ ************************************************************************** """
@@ -141,6 +157,9 @@ def _perform_password_reset(email, api_key, new_password):
   if bool:  #user exists, I log him
     user_row['password_hash'] = hash_password(new_password, bcrypt.gensalt())
     return True
+
+
+
 
 """ ************************************************************************** """
 """         NEW USER: MAIL CONFIRMATION                                         """    
@@ -156,6 +175,8 @@ def _confirm_email_address(email, api_key):
     #user['api_key'] = None
     anvil.users.force_login(user)
   return bool
+
+
 
 def recup_time(): 
     time=french_zone.time_french_zone()
