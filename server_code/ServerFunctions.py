@@ -16,11 +16,18 @@ from . import french_zone # importation du module pour le calcul du jour / heure
 from . import var_globales # importation du module contenant mes variables globales
 from datetime import datetime
 
-
-global code_app2
+# Lecture des variables globales (ds table d'ams_data: 'global_variables')
 global code_app1
+code_app1 = anvil.server.call('get_var_value', "code_app1")
+global code_app2
+code_app2 = anvil.server.call('get_var_value', "code_app2")
 global nom_app_pour_mail
+nom_app_pour_mail = anvil.server.call('get_var_value', "nom_app_pour_mail")
 global mon_mail
+mon_mail =  anvil.server.call('get_var_value', "mon_mail")
+global mon_logo
+mon_mail =  anvil.server.call('get_var_value', "mon_logo")
+
 
 """ Création de la clef API si non déjà créée"""
 def mk_api_key():
