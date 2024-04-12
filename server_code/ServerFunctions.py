@@ -16,18 +16,6 @@ from . import french_zone # importation du module pour le calcul du jour / heure
 from . import var_globales # importation du module contenant mes variables globales
 from datetime import datetime
 
-# Lecture des variables globales (ds table d'ams_data: 'global_variables')
-global code_app1
-code_app1 = anvil.server.call('get_var_value', "code_app1")
-global code_app2
-code_app2 = anvil.server.call('get_var_value', "code_app2")
-global nom_app_pour_mail
-nom_app_pour_mail = anvil.server.call('get_var_value', "nom_app_pour_mail")
-global mon_mail
-mon_mail =  anvil.server.call('get_var_value', "mon_mail")
-global mon_logo
-mon_mail =  anvil.server.call('get_var_value', "mon_logo")
-
 
 """ Création de la clef API si non déjà créée"""
 def mk_api_key():
@@ -40,7 +28,13 @@ def mk_api_key():
 """ demande de chgt de Password """    
 @anvil.server.callable
 def _send_password_reset(email):
-  global code_app1, code_app1, nom_app_pour_mail, mon_mail, mon_logo     # Variables globales lues ds table d'ams_data: 'global_variables'  
+  # Lecture des variables globales (ds table d'ams_data: 'global_variables')  
+  code_app1 = anvil.server.call('get_var_value', "code_app1")
+  code_app2 = anvil.server.call('get_var_value', "code_app2")
+  nom_app_pour_mail = anvil.server.call('get_var_value', "nom_app_pour_mail")
+  mon_mail =  anvil.server.call('get_var_value', "mon_mail")
+  mon_mail =  anvil.server.call('get_var_value', "mon_logo") 
+ 
   """Send a password reset email to the specified user"""
   user = app_tables.users.get(email=email)
   t=recup_time() # t will be text form (module at the end of this server code module)
@@ -70,7 +64,12 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 """Sending the email confirmation link: the new user's email must be confirmed"""
 @anvil.server.callable
 def _send_email_confirm_link(email):
-  global code_app1, code_app1, nom_app_pour_mail, mon_mail, mon_logo     # Variables globales lues ds table d'ams_data: 'global_variables'  
+  # Lecture des variables globales (ds table d'ams_data: 'global_variables')  
+  code_app1 = anvil.server.call('get_var_value', "code_app1")
+  code_app2 = anvil.server.call('get_var_value', "code_app2")
+  nom_app_pour_mail = anvil.server.call('get_var_value', "nom_app_pour_mail")
+  mon_mail =  anvil.server.call('get_var_value', "mon_mail")
+  mon_mail =  anvil.server.call('get_var_value', "mon_logo") 
   user = app_tables.users.get(email=email)
   logo_address = code_app2+"/_/theme/"+mon_logo
   t=recup_time() # t will be text form (module at the end of this server code module)
