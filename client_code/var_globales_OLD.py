@@ -1,3 +1,4 @@
+import anvil.server
 
 # Variables globales que j'appelle par 'var_globales.code_app'
 code_app1 = "https://sxgqveyu3c2nj5kr.anvil.app/32M6REZ23NPHINCU26GAZBNM"   # App "AMS Data"  

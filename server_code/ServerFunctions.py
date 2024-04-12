@@ -13,14 +13,20 @@ import bcrypt
 import uuid   # this library generates codes (API keys for exemple)
 import sys
 from . import french_zone # importation du module pour le calcul du jour / heure du sign in
-from . import var_globales # importation du module contenant mes variables globales
+#from . import var_globales # importation du module contenant mes variables globales
 from datetime import datetime
 
-
-global code_app2
+# Lecture des variables globales (ds table d'ams_data: 'global_variables')
 global code_app1
+code_app1 = anvil.server.call('get_var_value', "code_app1")
+global code_app2
+code_app2 = anvil.server.call('get_var_value', "code_app2")
 global nom_app_pour_mail
+nom_app_pour_mail = anvil.server.call('get_var_value', "nom_app_pour_mail")
 global mon_mail
+mon_mail =  anvil.server.call('get_var_value', "mon_mail")
+global mon_logo
+mon_mail =  anvil.server.call('get_var_value', "mon_logo")
 
 """ Création de la clef API si non déjà créée"""
 def mk_api_key():
@@ -28,17 +34,16 @@ def mk_api_key():
     #print(f"UUID  généré: {user_api_key}")
     return user_api_key
 
-
-
 """ demande de chgt de Password """    
 @anvil.server.callable
 def _send_password_reset(email):
   """Send a password reset email to the specified user"""
+  global code_app1, code_app1, nom_app_pour_mail, mon_mail, mon_logo     # Variables globales lues ds table d'ams_data: 'global_variables'
   user = app_tables.users.get(email=email)
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None:
-    logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
-    anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Reinitilisez votre mot de passe",
+    logo_address = code_app2+"/_/theme/"+mon_logo
+    anvil.email.send(to=user['email'], subject=nom_app_pour_mail + "Reinitilisez votre mot de passe",
 html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
 <b>Mme/Mr {user["nom"]},</b><br>
@@ -48,11 +53,11 @@ Avez-vous bien demandé une modification du mot de passe de votre compte ? Si ce
 Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le lien ci-dessous:</b>
 <br>
 
-{var_globales.code_app1}/#?a=pwreset&email={url_encode(user['email'])}&api={url_encode(user['api_key'])}&t={t} <br>
+{code_app1}/#?a=pwreset&email={url_encode(user['email'])}&api={url_encode(user['api_key'])}&t={t} <br>
 <br><br>
 <b><i>         Jean-Marc</b></i>,<br>
 <b>JMM Formation & Services</b> <br>
-{var_globales.mon_mail} <br>
+{mon_mail} <br>
 """)
       
     return True
@@ -62,23 +67,24 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 """Sending the email confirmation link: the new user's email must be confirmed"""
 @anvil.server.callable
 def _send_email_confirm_link(email):
+  global code_app1, code_app1, nom_app_pour_mail, mon_mail, mon_logo     # Variables globales lues ds table d'ams_data: 'global_variables' 
   user = app_tables.users.get(email=email)
-  logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
+  logo_address = code_app2+"/_/theme/"+mon_logo
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None and not user['confirmed_email']:  # User table, Column confirmed_email not checked/True
-        anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Confirmation de votre adresse email",
+        anvil.email.send(to=user['email'], subject=nom_app_pour_mail + "Confirmation de votre adresse email",
 html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
 <b>Mme/Mr {user["nom"]},</b><br>
 <br>
-Merci de votre enregistrement sur {var_globales.nom_app_pour_mail} !<br>
+Merci de votre enregistrement sur {nom_app_pour_mail} !<br>
 Afin de confirmer votre adresse mail, <b>clickez le lien ci-dessous:</b><br>
 <br>
-{var_globales.code_app1}/#?a=confirm&email={url_encode(user['email'])}&hpw={url_encode(user['password_hash'])}&t={t} <br>
+{code_app1}/#?a=confirm&email={url_encode(user['email'])}&hpw={url_encode(user['password_hash'])}&t={t} <br>
 <br><br>
 <b><i>         Jean-Marc</b></i>,<br>
 <b>JMM Formation & Services</b> <br>
-{var_globales.mon_mail} <br>
+{mon_mail} <br>
 """)
   return True
 
@@ -103,25 +109,23 @@ def hash_password(password, salt):
 # with this email address. The transaction might retry or abort, so wait until after it's
 # done before sending the email.
 """
-
 @anvil.server.callable
 @anvil.tables.in_transaction
 def do_signup(email, name, password, num_stage):
-  print(email, name, password, num_stage)
+  #print(email, name, password, num_stage)
   pwhash = hash_password(password, bcrypt.gensalt())
-  print("add_user_if_missing email : ", email)  
+  #print("add_user_if_missing email : ", email)  
 
   user = app_tables.users.get(email=email)
   if user is None:   # user not created yet
-    print("non existant")   
+    #print("non existant")   
     api = mk_api_key()
     date_heure = french_zone.time_french_zone()
-  
     user = app_tables.users.add_row(email=email.lower(),role="S", enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, temp=int(num_stage))
-    print("création user", user['email'])
+    #print("création user", user['email'])
     err = None # pas d'erreur
   else:  # erreur 
-    print("existant",user['email']) 
+    #print("existant",user['email']) 
     err = "Cet adresse mail est déjà enregistrée par nos services. Essayez plutôt de vous connecter."
   return err
 
