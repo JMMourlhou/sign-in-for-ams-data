@@ -190,3 +190,6 @@ def recup_time():
     time_str=str(time)
     time_str=time_str.replace(" ","_")
     return(time_str)
+
+def recup_global_variables():
+    app_tables.
