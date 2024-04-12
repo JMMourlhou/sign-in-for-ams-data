@@ -44,7 +44,7 @@ def _send_password_reset(email):
   user = app_tables.users.get(email=email)
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None:
-    logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
+    logo_address = var_code_app2+"/_/theme/"+var_globales.mon_logo
     anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Reinitilisez votre mot de passe",
 html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
