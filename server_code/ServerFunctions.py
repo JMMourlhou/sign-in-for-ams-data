@@ -15,6 +15,8 @@ import sys
 from . import french_zone # importation du module pour le calcul du jour / heure du sign in
 from . import var_globales # importation du module contenant mes variables globales
 from datetime import datetime
+
+
 global code_app2
 global code_app1
 global nom_app_pour_mail
