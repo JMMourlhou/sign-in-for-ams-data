@@ -18,9 +18,13 @@ from datetime import datetime
 
 
 global code_app2
+code_app2 = ""
 global code_app1
+code_app1 = ""
 global nom_app_pour_mail
+nom_app_pour_mail = ""
 global mon_mail
+mon_mail = ""
 
 """ Création de la clef API si non déjà créée"""
 def mk_api_key():
@@ -34,6 +38,8 @@ def mk_api_key():
 @anvil.server.callable
 def _send_password_reset(email):
   """Send a password reset email to the specified user"""
+  global mon_mail
+    
   user = app_tables.users.get(email=email)
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None:
@@ -52,7 +58,7 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 <br><br>
 <b><i>         Jean-Marc</b></i>,<br>
 <b>JMM Formation & Services</b> <br>
-{var_globales.mon_mail} <br>
+{mon_mail} <br>
 """)
       
     return True
@@ -192,4 +198,13 @@ def recup_time():
     return(time_str)
 
 def recup_global_variables():
-    app_tables.
+    dict = anvil.server.call('get_variable_names')
+    global code_app2
+    code_app2 = dict["code_app2"]
+    global code_app1
+    code_app1 = dict["code_app1"]
+    global nom_app_pour_mail
+    nom_app_pour_mail = dict["nom_app_pour_mail"]
+    global mon_mail
+    mon_mail = dict["mon_mail"]
+    
