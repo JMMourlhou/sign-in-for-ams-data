@@ -13,7 +13,6 @@ import bcrypt
 import uuid   # this library generates codes (API keys for exemple)
 import sys
 from . import french_zone # importation du module pour le calcul du jour / heure du sign in
-#from . import var_globales # importation du module contenant mes variables globales
 from datetime import datetime
 
 # Lecture des variables globales (ds table d'ams_data: 'global_variables')
