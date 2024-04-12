@@ -40,6 +40,7 @@ def mk_api_key():
 """ demande de chgt de Password """    
 @anvil.server.callable
 def _send_password_reset(email):
+  global code_app1, code_app1, nom_app_pour_mail, mon_mail, mon_logo     # Variables globales lues ds table d'ams_data: 'global_variables'  
   """Send a password reset email to the specified user"""
   user = app_tables.users.get(email=email)
   t=recup_time() # t will be text form (module at the end of this server code module)
@@ -69,6 +70,7 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 """Sending the email confirmation link: the new user's email must be confirmed"""
 @anvil.server.callable
 def _send_email_confirm_link(email):
+  global code_app1, code_app1, nom_app_pour_mail, mon_mail, mon_logo     # Variables globales lues ds table d'ams_data: 'global_variables'  
   user = app_tables.users.get(email=email)
   logo_address = code_app2+"/_/theme/"+mon_logo
   t=recup_time() # t will be text form (module at the end of this server code module)
