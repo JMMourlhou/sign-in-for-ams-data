@@ -25,6 +25,8 @@ global nom_app_pour_mail
 nom_app_pour_mail = ""
 global mon_mail
 mon_mail = ""
+global mon_logo
+mon_logo = ""
 
 """ Création de la clef API si non déjà créée"""
 def mk_api_key():
@@ -38,13 +40,19 @@ def mk_api_key():
 @anvil.server.callable
 def _send_password_reset(email):
   """Send a password reset email to the specified user"""
+  recup_global_variables()
+  global code_app2
+  global code_app1
+  global nom_app_pour_mail
   global mon_mail
+  global mon_logo
     
   user = app_tables.users.get(email=email)
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None:
-    logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
-    anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Reinitilisez votre mot de passe",
+    #logo_address = code_app2+"/_/theme/"+mon_logo
+    logo_address = code_app2+mon_logo
+    anvil.email.send(to=user['email'], subject=nom_app_pour_mail + "Reinitilisez votre mot de passe",
 html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
 <b>Mme/Mr {user["nom"]},</b><br>
@@ -54,7 +62,7 @@ Avez-vous bien demandé une modification du mot de passe de votre compte ? Si ce
 Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le lien ci-dessous:</b>
 <br>
 
-{var_globales.code_app1}/#?a=pwreset&email={url_encode(user['email'])}&api={url_encode(user['api_key'])}&t={t} <br>
+{code_app1}/#?a=pwreset&email={url_encode(user['email'])}&api={url_encode(user['api_key'])}&t={t} <br>
 <br><br>
 <b><i>         Jean-Marc</b></i>,<br>
 <b>JMM Formation & Services</b> <br>
@@ -198,6 +206,7 @@ def recup_time():
     return(time_str)
 
 def recup_global_variables():
+    dict={}
     dict = anvil.server.call('get_variable_names')
     global code_app2
     code_app2 = dict["code_app2"]
@@ -207,4 +216,5 @@ def recup_global_variables():
     nom_app_pour_mail = dict["nom_app_pour_mail"]
     global mon_mail
     mon_mail = dict["mon_mail"]
-    
+    global mon_logo
+    mon_logo = dict["mon_logo"]
