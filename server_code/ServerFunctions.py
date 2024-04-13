@@ -53,7 +53,7 @@ def _send_password_reset(email):
     anvil.email.send(to=user['email'], subject=nom_app_pour_mail + "Réinitialisez votre mot de passe",
 html=f"""
 <p> xxx {logo_address} xxx</p> 
-<p><img src = "Logo_F_S_small.png" width="200" height="200"> </p> 
+<p><img src = {logo_address} width="200" height="200"> </p> 
 <b>Mme/Mr {user["nom"]},</b><br>
 <br>
 Avez-vous bien demandé une modification du mot de passe de votre compte ? Si ce n'est pas vous, supprimez cet email ! <br>
