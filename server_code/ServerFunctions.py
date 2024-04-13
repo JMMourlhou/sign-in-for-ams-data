@@ -16,7 +16,8 @@ from . import french_zone # importation du module pour le calcul du jour / heure
 from . import var_globales # importation du module contenant mes variables globales
 from datetime import datetime
 
-
+# variables globales du modules qui contiendront les var_globales de l'appli
+# voir le dernier module recup_global_variables():
 global code_app2
 code_app2 = ""
 global code_app1
@@ -40,18 +41,13 @@ def mk_api_key():
 @anvil.server.callable
 def _send_password_reset(email):
   """Send a password reset email to the specified user"""
-  recup_global_variables()
-  global code_app2
-  global code_app1
-  global nom_app_pour_mail
-  global mon_mail
-  global mon_logo
+  recup_global_variables()   # appel au module qui va lire les var_globales, stockées ds table 
+  global code_app2, code_app1, nom_app_pour_mail, mon_mail, mon_logo
     
   user = app_tables.users.get(email=email)
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None:
-    #logo_address = code_app2+"/_/theme/"+mon_logo
-    logo_address = code_app2+mon_logo
+    logo_address = code_app2+"/_/theme/"+mon_logo
     anvil.email.send(to=user['email'], subject=nom_app_pour_mail + "Reinitilisez votre mot de passe",
 html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
