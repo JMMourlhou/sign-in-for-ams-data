@@ -64,7 +64,7 @@ def confirm_or_pwreset(h, num_stage=0):
             if anvil.server.call('_send_email_confirm_link', self.email_box.text):
                 alert(f"Un nouvel email de confirmation vous a été envoyé à {self.email_box.text}.")
         except:  #user non enregistré
-             alert("Votre mail est inconnu par nos services ou mal saisi, vérifiez le, sinon, flashez un code d'inscription ou Créez un compte")
+             alert("Votre mail est déjà confirmé, essayez de vous connecter.")
             
     anvil.users.logout()       #logging out the user
     return_to_mother_app.calling_mother_app(99)
