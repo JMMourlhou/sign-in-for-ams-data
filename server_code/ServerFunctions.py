@@ -13,7 +13,7 @@ import bcrypt
 import uuid   # this library generates codes (API keys for exemple)
 import sys
 from . import french_zone # importation du module pour le calcul du jour / heure du sign in
-from . import var_globales # importation du module contenant mes variables globales
+from . import var_globales # importation du module contenant la variable globale mon logo (a anuler qd j'ai trouvé ce qui ne va pas)
 from datetime import datetime
 
 # variables globales du modules qui contiendront les var_globales de l'appli
@@ -26,8 +26,8 @@ global nom_app_pour_mail
 nom_app_pour_mail = ""
 global mon_mail
 mon_mail = ""
-global mon_logo
-mon_logo = ""
+# global mon_logo      A AJOUTER PLUS TARD, pour l'instant, ne fonctionne pas
+# mon_logo = ""
 
 """ Création de la clef API si non déjà créée"""
 def mk_api_key():
@@ -35,7 +35,7 @@ def mk_api_key():
     #print(f"UUID  généré: {user_api_key}")
     return user_api_key
 
-# <p><img src = {logo_address} width="200" height="200"> </p> 
+
 
 
 """ demande de chgt de Password """    
@@ -43,16 +43,14 @@ def mk_api_key():
 def _send_password_reset(email):
   """Send a password reset email to the specified user"""
   recup_global_variables()   # appel au module qui va lire les var_globales, stockées ds table 
-  global code_app2, code_app1, nom_app_pour_mail, mon_mail, mon_logo
+  global code_app2, code_app1, nom_app_pour_mail, mon_mail
     
   user = app_tables.users.get(email=email)
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None:
-    #logo_address = code_app2+"/_/theme/"+mon_logo
-    logo_address = code_app1+mon_logo
+    logo_address = code_app2+"/_/theme/"+var_globales.mon_logo
     anvil.email.send(to=user['email'], subject=nom_app_pour_mail + "Réinitialisez votre mot de passe",
 html=f"""
-<p> xxx {logo_address} xxx</p> 
 <p><img src = {logo_address} width="200" height="200"> </p> 
 <b>Mme/Mr {user["nom"]},</b><br>
 <br>
@@ -75,23 +73,26 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 """Sending the email confirmation link: the new user's email must be confirmed"""
 @anvil.server.callable
 def _send_email_confirm_link(email):
+  recup_global_variables()   # appel au module qui va lire les var_globales, stockées ds table 
+  global code_app2, code_app1, nom_app_pour_mail, mon_mail
+    
   user = app_tables.users.get(email=email)
-  logo_address = var_globales.code_app2+"/_/theme/"+var_globales.mon_logo
+  logo_address = code_app2+"/_/theme/"+var_globales.mon_logo
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None and not user['confirmed_email']:  # User table, Column confirmed_email not checked/True
-        anvil.email.send(to=user['email'], subject=var_globales.nom_app_pour_mail + "Confirmation de votre adresse email",
+    anvil.email.send(to=user['email'], subject=nom_app_pour_mail + "Confirmation de votre adresse email",
 html=f"""
 <p><img src = {logo_address} width="200" height="200"> </p> 
 <b>Mme/Mr {user["nom"]},</b><br>
 <br>
-Merci de votre enregistrement sur {var_globales.nom_app_pour_mail} !<br>
+Merci de votre enregistrement sur {nom_app_pour_mail} !<br>
 Afin de confirmer votre adresse mail, <b>clickez le lien ci-dessous:</b><br>
 <br>
-{var_globales.code_app1}/#?a=confirm&email={url_encode(user['email'])}&hpw={url_encode(user['password_hash'])}&t={t} <br>
+{code_app1}/#?a=confirm&email={url_encode(user['email'])}&hpw={url_encode(user['password_hash'])}&t={t} <br>
 <br><br>
 <b><i>         Jean-Marc</b></i>,<br>
 <b>JMM Formation & Services</b> <br>
-{var_globales.mon_mail} <br>
+{mon_mail} <br>
 """)
   return True
 
@@ -215,5 +216,5 @@ def recup_global_variables():
     nom_app_pour_mail = dict["nom_app_pour_mail"]
     global mon_mail
     mon_mail = dict["mon_mail"]
-    global mon_logo
-    mon_logo = dict["mon_logo"]
+    #global mon_logo
+    #mon_logo = dict["mon_logo"]

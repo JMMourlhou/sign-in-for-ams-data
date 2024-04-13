@@ -1,8 +1,4 @@
+# NE PAS ENLEVER tant que l'affichage de mon logo pas résolu
 
-# Variables globales que j'appelle par 'var_globales.code_app'
-code_app1 = "https://sxgqveyu3c2nj5kr.anvil.app/32M6REZ23NPHINCU26GAZBNM"   # App "AMS Data"  
-code_app2 = "https://2erggvosxp234ktt.anvil.app/EK44RJHJVMRZ7R52DY6NEURF"   # App "sign-up_for_AMS_Data"
-nom_app_pour_mail = "AMSport Data"                                         
-mon_mail = "jmarc@jmm-formation-et-services.fr"
+# Variable globale que j'appelle par 'var_globales.code_app'
 mon_logo = "logo_fs_small.png"
-timedelay_url_in_min = 60 * 24 * 7 #  60 min x 24 hours x 7 days     delay, after URL (mail-confirm or pw-reset) over 
