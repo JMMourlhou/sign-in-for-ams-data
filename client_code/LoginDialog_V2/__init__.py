@@ -36,7 +36,7 @@ class LoginDialog_V2(LoginDialog_V2Template):
         self.email_box.text = mel
         
         # @ ds mail ?
-        if not "@" in self.email_box.text:
+        if "@" not in self.email_box.text:
             alert("Entrez un mail valide !")
             self.email_box.focus()
             return
@@ -56,7 +56,7 @@ class LoginDialog_V2(LoginDialog_V2Template):
                 alert(f"Un nouvel email de confirmation vous a été envoyé à {self.email_box.text}.")
                 return_to_mother_app.calling_mother_app(99)   #je retourne et efface l'url
         except anvil.users.AuthenticationFailed as e:
-            alert(f"Email ou mot de passe erroné, Ré-entrez les !")
+            alert("Email ou mot de passe erroné, Ré-entrez les !")
             return
 
     def password_box_pressed_enter(self, **event_args):

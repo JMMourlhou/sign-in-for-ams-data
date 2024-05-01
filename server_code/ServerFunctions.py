@@ -178,8 +178,7 @@ def _perform_password_reset(email, api_key, new_password):
   if bool:  #user exists, I log him
     user_row['password_hash'] = hash_password(new_password, bcrypt.gensalt())
     return True
-  else:
-    return False
+ 
 
 
 
