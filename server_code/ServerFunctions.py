@@ -152,6 +152,7 @@ def get_user_if_key_correct(email, api_key):
     if hash_password(api_key, salt) == hash_password(user_row['api_key'], salt):
       return True, user_row
   else:
+      print("Le mail n'existe pas dans la table users")
       return False, None
 
 
@@ -177,6 +178,8 @@ def _perform_password_reset(email, api_key, new_password):
   if bool:  #user exists, I log him
     user_row['password_hash'] = hash_password(new_password, bcrypt.gensalt())
     return True
+  else:
+    return False
 
 
 

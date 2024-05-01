@@ -5,7 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-
+from .. import return_to_mother_app
 
 class url_from_mail_PW_reset(url_from_mail_PW_resetTemplate):
     def __init__(self,email, api_key, **properties):
@@ -35,7 +35,7 @@ class url_from_mail_PW_reset(url_from_mail_PW_resetTemplate):
                 alert("Vous pouvez vous connecter avec le nouveau mot de passe !")
                 self.button_retour_click()
             else:
-                alert("Erreur, mot de passe non modifié !")
+                alert("Changt de mot de passe non effectué: Mail non trouvé.")   
         else:
             alert("Les mots de passe sont différents !")
             return
