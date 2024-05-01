@@ -8,7 +8,7 @@ from anvil.tables import app_tables
 #from .. import login_flow
 from .. import return_to_mother_app
 
-import anvil.js   # pour fermer la fenêtre
+import anvil.js   # pour fermer la fenêtre qd on a demandé à l'utilisateur d'aller ds ses mails pour valider le mail de confirmation
 from anvil.js.window import localStorage
 from anvil.js import window
 
