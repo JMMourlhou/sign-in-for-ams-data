@@ -8,6 +8,10 @@ from anvil.tables import app_tables
 #from .. import login_flow
 from .. import return_to_mother_app
 
+import anvil.js   # pour fermer la fenêtre
+from anvil.js.window import localStorage
+from anvil.js import window
+
 class SignupDialog_V2(SignupDialog_V2Template):
     def __init__(self, h={}, num_stage=0, **properties):
         # Set Form properties and Data Bindings.
@@ -69,18 +73,12 @@ class SignupDialog_V2(SignupDialog_V2Template):
             return_to_mother_app.calling_mother_app(99)
         else:           #Pas d'erreur, on envoi le mail de confirmation
             if anvil.server.call('_send_email_confirm_link', self.email_box.text):
-                alert(f"Un email de confirmation vous a été envoyé à {self.email_box.text}. Ouvrez-le svp.")
-                import anvil.js
-                from anvil.js.window import localStorage
-                from anvil.js import window
-                
+                alert(f"Un email de confirmation vous a été envoyé à {self.email_box.text}. Ouvrez-le svp.\n\nCette fenêtre va se fermer.")
                 # Déconnecter l'utilisateur 
                 anvil.users.logout()
-                # Afficher un message
-                #alert("Vous êtes déconnecté.")   
                 window.close()
             else:
-                alert(f"'{d.email_box.text}', cette adresse est déjà confirmée. Connectez-vous !")
+                alert(f"'{self.email_box.text}', cette adresse est déjà confirmée. Connectez-vous !")
                 """
                 A FAIRE envoi en connection
                 """
