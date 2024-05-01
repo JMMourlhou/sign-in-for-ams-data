@@ -44,7 +44,7 @@ def login_with_form(allow_cancel=True):
                 alert(f"Un nouvel email de confirmation a été envoyé à {d.email_box.text}.")
                 return_to_mother_app.calling_mother_app()
         except anvil.users.AuthenticationFailed as e:
-            alert(f"Email ou mot de passe erroné, Ré-entrez les !")
+            alert("Email ou mot de passe erroné, Ré-entrez les !")
             break
            
     elif choice == 'reset_password':
@@ -104,9 +104,15 @@ def signup_with_form(num_stage):
       alert(err)  
     else:
         if anvil.server.call("_send_email_confirm_link", d.email_box.text):
-            alert(f"Nous vous avons envoyé un mail de confirmation\n à l'adresse: {d.email_box.text}.\n\nVérifiez votre mail, et cliquez sur le lien.")
-            return_to_mother_app.calling_mother_app()
-
+            alert(f"Nous vous avons envoyé un mail de confirmation\n à l'adresse: {d.email_box.text}.\n\nVérifiez votre mail, et cliquez sur le lien.\n\nCette fenêtre va se fermer.")
+            #return_to_mother_app.calling_mother_app()
+            import anvil.js
+            from anvil.js.window import localStorage
+            from anvil.js import window
+            import anvil.users
+            # Déconnecter l'utilisateur et fermer la fenêtre 
+            anvil.users.logout()
+            window.close()
     
 def do_email_reset(h):
   """Check whether the user has arrived from a password reset, and pop up any necessary dialogs."""

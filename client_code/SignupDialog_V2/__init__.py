@@ -55,7 +55,7 @@ class SignupDialog_V2(SignupDialog_V2Template):
         self.email_box.text = mel
 
         # @ ds mail ?
-        if not "@" in self.email_box.text:
+        if "@" not in self.email_box.text:
             alert("Entrez un mail valide !")
             return
 
@@ -64,12 +64,21 @@ class SignupDialog_V2(SignupDialog_V2Template):
             return
         # ------------------------------------------------------------   VALIDATION 
         err = anvil.server.call('do_signup', self.email_box.text, self.name_box.text, self.password_box.text, self.num_stage)
-        if err != None:    #erreur, on revient ds mother app
+        if err is not None:    #erreur, on revient ds mother app
             alert(err)
             return_to_mother_app.calling_mother_app(99)
         else:           #Pas d'erreur, on envoi le mail de confirmation
             if anvil.server.call('_send_email_confirm_link', self.email_box.text):
                 alert(f"Un email de confirmation vous a été envoyé à {self.email_box.text}. Ouvrez-le svp.")
+                import anvil.js
+                from anvil.js.window import localStorage
+                from anvil.js import window
+                
+                # Déconnecter l'utilisateur 
+                anvil.users.logout()
+                # Afficher un message
+                #alert("Vous êtes déconnecté.")   
+                window.close()
             else:
                 alert(f"'{d.email_box.text}', cette adresse est déjà confirmée. Connectez-vous !")
                 """
