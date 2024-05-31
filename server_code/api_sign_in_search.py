@@ -1,8 +1,6 @@
 import anvil.files
 from anvil.files import data_files
 import anvil.email
-import anvil.google.auth, anvil.google.drive, anvil.google.mail
-from anvil.google.drive import app_files
 import anvil.users
 import tables
 from tables import app_tables
@@ -12,7 +10,6 @@ from anvil.tables import app_tables
 import anvil.server
 import bcrypt # to test the API key crypted
 from . import french_zone
-#import Fitness_d
 
 #test3: is the new user in the users data table (for email validation) ?
 @anvil.server.callable

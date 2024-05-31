@@ -209,7 +209,7 @@ def recup_time():
 
 def recup_global_variables():
     dict={}
-    dict = anvil.server.call('get_variable_names')
+    dict = anvil.server.call('get_variable_names')   # in AMS_Data
     global code_app2
     code_app2 = dict["code_app2"]
     global code_app1
