@@ -1,5 +1,4 @@
-correct_dependency_ids: {R4JRRFM62XCXXE6E: R4JRRFM62XCXXE6E, EQQMHT4ZPNVIAT2X: EQQMHT4ZPNVIAT2X,
-  dep_rb6njj1ns8vyd: SXGQVEYU3C2NJ5KR, dep_dcvll6vcje54tm: EQQMHT4ZPNVIAT2X}
+correct_dependency_ids: {R4JRRFM62XCXXE6E: R4JRRFM62XCXXE6E, EQQMHT4ZPNVIAT2X: EQQMHT4ZPNVIAT2X, dep_rb6njj1ns8vyd: SXGQVEYU3C2NJ5KR, dep_dcvll6vcje54tm: EQQMHT4ZPNVIAT2X}
 dependencies:
 - dep_id: dep_dt8k9yljueyma
   version: {dev: false}
@@ -9,15 +8,11 @@ services:
   client_config: {enable_v2: true}
   server_config: {}
 - source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: false, enable_automatically: false, use_email: true,
-    confirm_email: true, allow_remember_me: true, remember_me_days: 365, share_login_status: true,
-    use_token: true}
+  client_config: {allow_signup: false, enable_automatically: false, use_email: true, confirm_email: true, allow_remember_me: true, remember_me_days: 365, share_login_status: true, use_token: true}
   server_config: {user_table: 490272}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {custom_smtp: true, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: jmarc,
-    smtp_password: r5nm/hr867Hyw0TVgjvsJpYUPv1R7JE/0TceEDNrpC1r9v9JbxFlhcC7C4hI+rOkgGxzLxkBEyr1beVkHE3d/69R+ACNUyGQXWWaklFOgS09FVfa/YydmlNar0mU0OfDgThR+Mi1QReFSWhn5BwM61p2jnM30vfFJ1WbQkjyHZ1Y5cVDOnNkkqz9Sb8=,
-    smtp_encryption: '', test_mode: false}
+  server_config: {custom_smtp: true, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: jmarc, smtp_password: r5nm/hr867Hyw0TVgjvsJpYUPv1R7JE/0TceEDNrpC1r9v9JbxFlhcC7C4hI+rOkgGxzLxkBEyr1beVkHE3d/69R+ACNUyGQXWWaklFOgS09FVfa/YydmlNar0mU0OfDgThR+Mi1QReFSWhn5BwM61p2jnM30vfFJ1WbQkjyHZ1Y5cVDOnNkkqz9Sb8=, smtp_encryption: '', test_mode: false}
 - source: /runtime/services/anvil/files.yml
   client_config: {}
   server_config: {}
@@ -30,8 +25,7 @@ runtime_options:
   client_version: '3'
   server_version: python3-full
   server_spec: {base: python310-standard}
-metadata: {title: Sign_In, logo_img: 'asset:Logo F S small_transparent.png', description: 'Sign_In
-    for AMS_Data '}
+metadata: {title: Sign_In, logo_img: 'asset:Logo F S small_transparent.png', description: 'Sign_In for AMS_Data '}
 startup_form: null
 db_schema:
   files:

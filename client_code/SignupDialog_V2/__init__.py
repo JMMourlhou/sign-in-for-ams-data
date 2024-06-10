@@ -73,7 +73,7 @@ class SignupDialog_V2(SignupDialog_V2Template):
             return_to_mother_app.calling_mother_app(99)
         else:           #Pas d'erreur, on envoi le mail de confirmation
             if anvil.server.call('_send_email_confirm_link', self.email_box.text):
-                alert(f"Un email de confirmation vous a été envoyé à {self.email_box.text}. Ouvrez-le svp.\n\nCette fenêtre va se fermer.")
+                alert(f"Un email de confirmation vous a été envoyé à {self.email_box.text}. Ouvrez-le svp.\n\nCette fenêtre devrait se fermer.")
                 # Déconnecter l'utilisateur 
                 anvil.users.logout()
                 window.close()
