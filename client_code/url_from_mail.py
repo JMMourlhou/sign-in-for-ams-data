@@ -63,8 +63,9 @@ def confirm_or_pwreset(h, num_stage=0):
             alert("Votre mail est connu par nos services mais n'est pas confirmé, cliquez le dernier lien envoyé par mail.")
             if anvil.server.call('_send_email_confirm_link', self.email_box.text):
                 alert(f"Un nouvel email de confirmation vous a été envoyé à {self.email_box.text}.")
-        except:  #user non enregistré
-            alert("Votre mail est déjà confirmé, essayez de vous connecter.")
+        except:  #user confirmé
+            #alert("Votre mail est déjà confirmé, essayez de vous connecter.")
+            pass
             
     anvil.users.logout()       #logging out the user
     return_to_mother_app.calling_mother_app(99)
