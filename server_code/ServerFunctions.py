@@ -131,10 +131,11 @@ def do_signup(email, name, password, num_stage):
     api = mk_api_key()
     date_heure = french_zone.time_french_zone()
     role_user ="S"  # stagiaire par défaut
-    if num_stage is not None or num_stage != 0:
-        if num_stage > 999:
+    num = int(num_stage)
+    if num_stage is not None or num_stage != "":
+        if num > 999:
             role_user = "F"
-        if num_stage == 1003:  # Tuteur
+        if num == 1003:  # Tuteur
             role_user = "T"
             
     user = app_tables.users.add_row(email=email.lower(),role=role_user, enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, temp=int(num_stage))
