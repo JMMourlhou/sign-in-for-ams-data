@@ -130,8 +130,14 @@ def do_signup(email, name, password, num_stage):
     print("non existant")   
     api = mk_api_key()
     date_heure = french_zone.time_french_zone()
-  
-    user = app_tables.users.add_row(email=email.lower(),role="S", enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, temp=int(num_stage))
+    role_user ="S"  # stagiaire par défaut
+    if num_stage is not None or num_stage != 0:
+        if num_stage > 999:
+            role_user = "F"
+        if num_stage == 1003:  # Tuteur
+            role_user = "T"
+            
+    user = app_tables.users.add_row(email=email.lower(),role=role_user, enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, temp=int(num_stage))
     print("création user", user['email'])
     err = None # pas d'erreur
   else:  # erreur 
