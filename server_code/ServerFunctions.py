@@ -91,7 +91,7 @@ Afin de confirmer votre adresse mail, <b>clickez le lien ci-dessous:</b><br>
 {code_app1}/#?a=confirm&email={url_encode(user['email'])}&hpw={url_encode(user['password_hash'])}&t={t} <br>
 <br><br>
 <b><i>         Jean-Marc</b></i>,<br>
-<b>JMM Formation & Services</b> <br>
+<b>Pour AMSport</b> <br>
 {mon_mail} <br>
 """)
   return True
