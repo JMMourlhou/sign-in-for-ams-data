@@ -76,7 +76,7 @@ def _send_email_confirm_link(email):
   recup_global_variables()   # appel au module qui va lire les var_globales, stockées ds table 
   global code_app2, code_app1, nom_app_pour_mail, mon_mail
     
-  user = app_tables.users.get(email=email)
+  user = app_tables.users.get(email=email)  
   logo_address = code_app2+"/_/theme/"+var_globales.mon_logo
   t=recup_time() # t will be text form (module at the end of this server code module)
   if user is not None and not user['confirmed_email']:  # User table, Column confirmed_email not checked/True
