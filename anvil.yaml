@@ -12,7 +12,7 @@ services:
   server_config: {user_table: 490272}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {custom_smtp: true, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: jmarc, smtp_password: r5nm/hr867Hyw0TVgjvsJpYUPv1R7JE/0TceEDNrpC1r9v9JbxFlhcC7C4hI+rOkgGxzLxkBEyr1beVkHE3d/69R+ACNUyGQXWWaklFOgS09FVfa/YydmlNar0mU0OfDgThR+Mi1QReFSWhn5BwM61p2jnM30vfFJ1WbQkjyHZ1Y5cVDOnNkkqz9Sb8=, smtp_encryption: '', test_mode: false}
+  server_config: {custom_smtp: true, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: jmarc, smtp_password: IGo9/+7jB7CoBZ6uFwkqHwtCr1EXhsyYWuylWRLw8fOZwWVslDvclj5mntk9FV0prT+6pdKuY7xWnpOQDAYSvj7+nJY8L5lkfTpdvqrvLRNCrREQSNTlskAcGc7WXNEDvXDYrFnAe6Cy8ArgQPPZq+exbU2j7Y5u24neqFU+uhOd7Ct7ez7vqDwdHWA=, smtp_encryption: '', test_mode: false}
 - source: /runtime/services/anvil/files.yml
   client_config: {}
   server_config: {}
