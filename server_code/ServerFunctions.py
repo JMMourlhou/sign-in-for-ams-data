@@ -143,7 +143,8 @@ def do_signup(email, name, password, num_stage):
     err = None # pas d'erreur
   else:  # erreur 
     print("existant",user['email']) 
-    err = "Cet adresse mail est déjà enregistrée par nos services. Essayez plutôt de vous connecter."
+    err = "Cet adresse mail est déjà enregistrée par nos services. Mais vous n'êtes pas confirmé. "
+    _send_email_confirm_link(email)
   return err
 
 
