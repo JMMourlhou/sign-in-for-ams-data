@@ -1,69 +1,69 @@
-container:
-  type: ColumnPanel
-  properties: {col_widths: '{}'}
-  event_bindings: {show: focus_name}
 components:
-- type: ColumnPanel
-  properties: {role: outlined-card, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-  name: column_panel_3
-  layout_properties: {grid_position: 'QQCBAK,IJBMRO'}
-  components:
-  - type: TextBox
-    properties: {role: dense, bold: false, align: center, placeholder: Votre nom, spacing_above: small, background: 'theme:Primary 700', type: text, underline: false, font: '', hide_text: false, foreground: 'theme:On Primary', spacing_below: none, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-    name: name_box
+- components:
+  - event_bindings: {}
     layout_properties:
       col_widths: {}
       grid_position: QXZAAN,ZNRFIA
-    event_bindings: {}
-  - type: TextBox
-    properties: {role: dense, bold: false, align: center, placeholder: email@adresse, spacing_above: none, background: 'theme:Primary 700', type: text, underline: false, font: '', hide_text: false, foreground: 'theme:On Primary', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-    name: email_box
+    name: name_box
+    properties: {align: center, background: 'theme:Primary 700', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:On Primary', hide_text: false, italic: false, placeholder: Votre nom, role: dense, spacing_above: small, spacing_below: none, text: '', tooltip: '', type: text, underline: false, visible: true}
+    type: TextBox
+  - event_bindings: {}
     layout_properties:
       col_widths: {}
       grid_position: TOSIWY,TGFAIP
-    event_bindings: {}
-  - type: TextBox
-    properties: {role: null, bold: false, align: center, placeholder: Mot de passe, spacing_above: medium, background: 'theme:Primary 700', type: text, underline: false, font: '', hide_text: true, foreground: 'theme:On Primary', spacing_below: none, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-    name: password_box
+    name: email_box
+    properties: {align: center, background: 'theme:Primary 700', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:On Primary', hide_text: false, italic: false, placeholder: email@adresse, role: dense, spacing_above: none, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+    type: TextBox
+  - event_bindings: {}
     layout_properties:
       col_widths: {}
       grid_position: MRTXMJ,GDYPXI
-    event_bindings: {}
-  - type: TextBox
-    properties: {role: null, bold: false, align: center, placeholder: Ré-entrez votre mot de passe, spacing_above: none, background: 'theme:Primary 700', type: text, underline: false, font: '', hide_text: true, foreground: 'theme:On Primary', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-    name: password_repeat_box
+    name: password_box
+    properties: {align: center, background: 'theme:Primary 700', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:On Primary', hide_text: true, italic: false, placeholder: Mot de passe, role: null, spacing_above: medium, spacing_below: none, text: '', tooltip: '', type: text, underline: false, visible: true}
+    type: TextBox
+  - event_bindings: {pressed_enter: password_repeat_box_pressed_enter}
     layout_properties:
       col_widths: {}
       grid_position: RBLAAD,OIZOAN
-    event_bindings: {pressed_enter: password_repeat_box_pressed_enter}
-  - type: ColumnPanel
-    properties: {role: card, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-    name: column_panel_1
-    layout_properties: {grid_position: 'RJHBBC,GWWGYK'}
-    components:
-    - type: ColumnPanel
-      properties: {col_widths: '{}'}
-      name: column_panel_2
-      layout_properties: {grid_position: 'ZCTUTR,YNYHKG'}
-      components:
-      - type: Button
-        properties: {role: raised, bold: false, align: center, spacing_above: none, background: 'theme:Primary', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Tertiary', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: OK}
-        name: button_validation
+    name: password_repeat_box
+    properties: {align: center, background: 'theme:Primary 700', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:On Primary', hide_text: true, italic: false, placeholder: Ré-entrez votre mot de passe, role: null, spacing_above: none, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+    type: TextBox
+  - components:
+    - components:
+      - event_bindings: {click: button_validation_click}
         layout_properties:
           col_widths: {}
+          full_width_row: false
           grid_position: RVWDOB,TECTFA
-          full_width_row: false
-        event_bindings: {click: button_validation_click}
-      - type: Button
-        properties: {role: raised, bold: false, align: center, spacing_above: none, background: 'theme:Primary', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Tertiary', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: Retour}
-        name: button_retour
+        name: button_validation
+        properties: {align: center, background: 'theme:Primary', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:Tertiary', icon: '', icon_align: left, italic: false, role: raised, spacing_above: none, spacing_below: small, text: OK, tooltip: '', underline: false, visible: true}
+        type: Button
+      - event_bindings: {click: button_retour_click}
         layout_properties:
           col_widths: {}
-          grid_position: RVWDOB,EWZCRC
           full_width_row: false
-        event_bindings: {click: button_retour_click}
-- type: Spacer
-  properties: {visible: true, spacing_above: none, spacing_below: none, height: 11, tooltip: ''}
+          grid_position: RVWDOB,EWZCRC
+        name: button_retour
+        properties: {align: center, background: 'theme:Primary', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:Tertiary', icon: '', icon_align: left, italic: false, role: raised, spacing_above: none, spacing_below: small, text: Retour, tooltip: '', underline: false, visible: true}
+        type: Button
+      layout_properties: {grid_position: 'ZCTUTR,YNYHKG'}
+      name: column_panel_2
+      properties: {col_widths: '{}'}
+      type: ColumnPanel
+    layout_properties: {grid_position: 'RJHBBC,GWWGYK'}
+    name: column_panel_1
+    properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'QQCBAK,IJBMRO'}
+  name: column_panel_3
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{}', foreground: '', role: outlined-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+  type: ColumnPanel
+- layout_properties: {grid_position: 'EWPBFZ,EARWFZ'}
   name: spacer_1
-  layout_properties: {grid_position: 'EWPBFZ,EARWFZ'}
+  properties: {height: 11, spacing_above: none, spacing_below: none, tooltip: '', visible: true}
+  type: Spacer
+container:
+  event_bindings: {show: focus_name}
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
 is_package: true

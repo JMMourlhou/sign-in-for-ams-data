@@ -120,7 +120,7 @@ def hash_password(password, salt):
 
 @anvil.server.callable
 @anvil.tables.in_transaction
-def do_signup(email, name, password, num_stage):
+def do_signup(email, name, password, num_stage, pour_stage="0"):
   print(email, name, password, num_stage)
   pwhash = hash_password(password, bcrypt.gensalt())
   print("add_user_if_missing email : ", email)  
@@ -138,7 +138,7 @@ def do_signup(email, name, password, num_stage):
         if num == 1003:  # Tuteur
             role_user = "T"
             
-    user = app_tables.users.add_row(email=email.lower(),role=role_user, enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, temp=int(num_stage))
+    user = app_tables.users.add_row(email=email.lower(),role=role_user, enabled=True, nom=name, password_hash=pwhash, api_key=api, signed_up=date_heure, temp=int(num_stage), temp_for_stage=int(pour_stage))
     print("création user", user['email'])
     err = None # pas d'erreur
   else:  # erreur 

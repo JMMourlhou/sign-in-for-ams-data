@@ -1,41 +1,41 @@
-container: {type: ColumnPanel}
 components:
-- type: Label
-  properties: {role: null, align: center, tooltip: '', border: '', foreground: '', visible: true, text: 'Entrez votre adresse Email::', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: none, italic: false, background: '', bold: true, underline: false, icon: ''}
-  name: label_1
-  layout_properties:
+- layout_properties:
     col_widths: {}
     grid_position: YNYMAK,MFNRBE
-- type: TextBox
-  properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: 'theme:On Primary', visible: true, text: '', font_size: null, font: '', spacing_above: none, type: text, spacing_below: small, italic: false, background: 'theme:Primary', bold: false, underline: false}
-  name: email_box
+  name: label_1
+  properties: {align: center, background: '', bold: true, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: none, text: 'Entrez votre adresse Email::', tooltip: '', underline: false, visible: true}
+  type: Label
+- event_bindings: {lost_focus: email_box_lost_focus, pressed_enter: close_alert}
   layout_properties:
     col_widths: {}
     grid_position: FPJLEP,BNCRQY
-  event_bindings: {pressed_enter: close_alert, lost_focus: email_box_lost_focus}
-- type: Label
+  name: email_box
+  properties: {align: center, background: 'theme:Primary', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:On Primary', hide_text: false, italic: false, placeholder: '', role: null, spacing_above: none, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
+  type: TextBox
+- layout_properties:
+    col_widths: {}
+    grid_position: HAGMSF,HNLWAS
+  name: label_2
   properties:
-    role: null
     align: center
-    tooltip: ''
+    background: ''
+    bold: true
     border: ''
+    font: ''
+    font_size: 14
     foreground: ''
-    visible: true
+    icon: ''
+    icon_align: left
+    italic: false
+    role: null
+    spacing_above: small
+    spacing_below: small
     text: |-
       Nous vous envoyons un lien pour réinitialiser votre mot de passe.
       Vérifiez vos mails.
-    font_size: 14
-    font: ''
-    spacing_above: small
-    icon_align: left
-    spacing_below: small
-    italic: false
-    background: ''
-    bold: true
+    tooltip: ''
     underline: false
-    icon: ''
-  name: label_2
-  layout_properties:
-    col_widths: {}
-    grid_position: HAGMSF,HNLWAS
+    visible: true
+  type: Label
+container: {type: ColumnPanel}
 is_package: true

@@ -1,128 +1,128 @@
-correct_dependency_ids: {R4JRRFM62XCXXE6E: R4JRRFM62XCXXE6E, EQQMHT4ZPNVIAT2X: EQQMHT4ZPNVIAT2X, dep_rb6njj1ns8vyd: SXGQVEYU3C2NJ5KR, dep_dcvll6vcje54tm: EQQMHT4ZPNVIAT2X}
-dependencies:
-- dep_id: dep_dt8k9yljueyma
-  version: {dev: true}
-  resolution_hints: {app_id: SXGQVEYU3C2NJ5KR, name: AMS_Data, package_name: AMS_Data}
-services:
-- source: /runtime/services/tables.yml
-  client_config: {enable_v2: true}
-  server_config: {}
-- source: /runtime/services/anvil/users.yml
-  client_config: {allow_signup: false, enable_automatically: false, use_email: true, confirm_email: true, allow_remember_me: true, remember_me_days: 365, share_login_status: true, use_token: true}
-  server_config: {user_table: 490272}
-- source: /runtime/services/anvil/email.yml
-  client_config: {}
-  server_config: {custom_smtp: true, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: jmarc, smtp_password: r5nm/hr867Hyw0TVgjvsJpYUPv1R7JE/0TceEDNrpC1r9v9JbxFlhcC7C4hI+rOkgGxzLxkBEyr1beVkHE3d/69R+ACNUyGQXWWaklFOgS09FVfa/YydmlNar0mU0OfDgThR+Mi1QReFSWhn5BwM61p2jnM30vfFJ1WbQkjyHZ1Y5cVDOnNkkqz9Sb8=, smtp_encryption: '', test_mode: false}
-- source: /runtime/services/anvil/files.yml
-  client_config: {}
-  server_config: {}
-startup: {type: form, module: Form1}
-package_name: sign_in_for_AMS_Data
 allow_embedding: false
-name: Sign_In for AMS_Data
-runtime_options:
-  version: 2
-  client_version: '3'
-  server_version: python3-full
-  server_spec: {base: python310-standard}
-metadata: {title: Sign_In, logo_img: 'asset:Logo F S small_transparent.png', description: 'Sign_In for AMS_Data '}
-startup_form: null
+correct_dependency_ids: {EQQMHT4ZPNVIAT2X: EQQMHT4ZPNVIAT2X, R4JRRFM62XCXXE6E: R4JRRFM62XCXXE6E, dep_dcvll6vcje54tm: EQQMHT4ZPNVIAT2X, dep_rb6njj1ns8vyd: SXGQVEYU3C2NJ5KR}
 db_schema:
   files:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: path
+      type: string
+    - admin_ui: {width: 200}
+      name: file
+      type: media
+    - admin_ui: {width: 200}
+      name: file_version
+      type: string
+    server: full
     title: Files
-    client: none
-    server: full
-    columns:
-    - name: path
-      admin_ui: {width: 200}
-      type: string
-    - name: file
-      admin_ui: {width: 200}
-      type: media
-    - name: file_version
-      admin_ui: {width: 200}
-      type: string
   users:
-    title: Users
     client: none
-    server: full
     columns:
-    - name: email
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: email
       type: string
-    - name: enabled
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: enabled
       type: bool
-    - name: signed_up
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: signed_up
       type: datetime
-    - name: last_login
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: last_login
       type: datetime
-    - name: password_hash
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: password_hash
       type: string
-    - name: n_password_failures
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: n_password_failures
       type: number
-    - name: confirmed_email
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: confirmed_email
       type: bool
-    - name: api_key
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: api_key
       type: string
-    - name: accept_data
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: accept_data
       type: bool
-    - name: adresse_code_postal
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: adresse_code_postal
       type: string
-    - name: adresse_rue
-      admin_ui: {width: 279}
+    - admin_ui: {width: 279}
+      name: adresse_rue
       type: string
-    - name: adresse_ville
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: adresse_ville
       type: string
-    - name: code_postal_naissance
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: code_postal_naissance
       type: string
-    - name: commentaires
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: commentaires
       type: string
-    - name: date_naissance
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: date_naissance
       type: date
-    - name: email2
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: email2
       type: string
-    - name: nom
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: nom
       type: string
-    - name: pays_naissance
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: pays_naissance
       type: string
-    - name: photo
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: photo
       type: media
-    - name: prenom
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: prenom
       type: string
-    - name: temp
-      admin_ui: {order: 23, width: 200}
+    - admin_ui: {order: 23, width: 200}
+      name: temp
       type: number
-    - name: tel
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: tel
       type: string
-    - name: ville_naissance
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: ville_naissance
       type: string
-    - name: role
-      admin_ui: {width: 96}
+    - admin_ui: {width: 96}
+      name: role
       type: string
-    - name: temp2
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: temp2
       type: string
-    - name: temp3
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: temp3
       type: string
+    server: full
+    title: Users
+dependencies:
+- dep_id: dep_dt8k9yljueyma
+  resolution_hints: {app_id: SXGQVEYU3C2NJ5KR, name: AMS_Data, package_name: AMS_Data}
+  version: {dev: true}
+metadata: {description: 'Sign_In for AMS_Data ', logo_img: 'asset:Logo F S small_transparent.png', title: Sign_In}
+name: Sign_In for AMS_Data
+package_name: sign_in_for_AMS_Data
 renamed: true
+runtime_options:
+  client_version: '3'
+  server_spec: {base: python310-standard}
+  server_version: python3-full
+  version: 2
+services:
+- client_config: {enable_v2: true}
+  server_config: {}
+  source: /runtime/services/tables.yml
+- client_config: {allow_remember_me: true, allow_signup: false, confirm_email: true, enable_automatically: false, remember_me_days: 365, share_login_status: true, use_email: true, use_token: true}
+  server_config: {user_table: 490272}
+  source: /runtime/services/anvil/users.yml
+- client_config: {}
+  server_config: {custom_smtp: true, smtp_encryption: '', smtp_host: smtp.gmail.com, smtp_password: r5nm/hr867Hyw0TVgjvsJpYUPv1R7JE/0TceEDNrpC1r9v9JbxFlhcC7C4hI+rOkgGxzLxkBEyr1beVkHE3d/69R+ACNUyGQXWWaklFOgS09FVfa/YydmlNar0mU0OfDgThR+Mi1QReFSWhn5BwM61p2jnM30vfFJ1WbQkjyHZ1Y5cVDOnNkkqz9Sb8=, smtp_port: 587, smtp_user: jmarc, test_mode: false}
+  source: /runtime/services/anvil/email.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/files.yml
+startup: {module: Form1, type: form}
+startup_form: null
