@@ -10,13 +10,13 @@ from .. import return_to_mother_app
 from .. import url_from_mail
 
 class Form1(Form1Template):
-  def __init__(self, h={}, num_stage=0, pour_stage=0, **properties):
+  def __init__(self, h={}, num_stage=0, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Any code you write here will run when the form opens.
     self.num_stage = num_stage  
     self.h=h
-    #alert(h)
+    alert(h)
     if len(h)!=0:  # a URL from a confirm/reset_pw mail/qr code was sent to main app
         url_from_mail.confirm(h, num_stage) 
             
