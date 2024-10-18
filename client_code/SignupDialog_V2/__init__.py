@@ -13,7 +13,7 @@ from anvil.js.window import localStorage
 from anvil.js import window
 
 class SignupDialog_V2(SignupDialog_V2Template):
-    def __init__(self, h={}, num_stage=0, **properties):
+    def __init__(self, h={}, num_stage=0, pour_stage=0, **properties):
         # Set Form properties and Data Bindings.
         
         self.init_components(**properties)
@@ -22,6 +22,7 @@ class SignupDialog_V2(SignupDialog_V2Template):
         self.password_box.text = ""
         self.password_repeat_box.text = ""
         self.num_stage = num_stage
+        self.pour_stage = pour_stage
         
         #alert(f"SignupDialog_V2, num_stage {self.num_stage}")
         #alert(h)
@@ -67,7 +68,7 @@ class SignupDialog_V2(SignupDialog_V2Template):
             alert("Les mots de passe sont différents !")
             return
         # ------------------------------------------------------------   VALIDATION 
-        err = anvil.server.call('do_signup', self.email_box.text, self.name_box.text, self.password_box.text, self.num_stage)
+        err = anvil.server.call('do_signup', self.email_box.text, self.name_box.text, self.password_box.text, self.num_stage, self.pour_stage)
         if err is not None:    #erreur, on revient ds mother app
             alert(err)
             return_to_mother_app.calling_mother_app(99)
