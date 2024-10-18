@@ -15,7 +15,7 @@ from anvil.js import window
 class SignupDialog_V2(SignupDialog_V2Template):
     def __init__(self, h={}, num_stage=0, pour_stage=0, **properties):
         # Set Form properties and Data Bindings.
-        
+        # Any code you write here will run when the form opens.
         self.init_components(**properties)
         self.name_box.text = ""
         self.email_box.text = ""
@@ -24,15 +24,9 @@ class SignupDialog_V2(SignupDialog_V2Template):
         self.num_stage = num_stage
         self.pour_stage = pour_stage
         
-        #alert(f"SignupDialog_V2, num_stage {self.num_stage}")
-        #alert(h)
-        
-        # Any code you write here will run when the form opens.
-        
-    def focus_name(self, **kws):
-        """Focus on the password box."""
-        self.name_box.focus()    
-        
+        self.name_box.focus() 
+
+    
     def button_validation_click(self, **event_args):
         """This method is called when the button is clicked"""
         # nom vide ?
