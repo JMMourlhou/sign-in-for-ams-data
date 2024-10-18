@@ -17,9 +17,9 @@ Therefore, on the server side, it is not possible to retrieve it
 However, on the client side it is possible. """  
 
 def confirm_or_pwreset(h, num_stage=0):   
-    if h == None:
+    if h is None:
+        print(f"l'Url est vide: {h}")
         return
-    print(f"l'Url est vide: {h}")
     to_be_confirmed_email=""
     
     #test1: si h est type dict
