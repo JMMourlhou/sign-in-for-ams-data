@@ -63,7 +63,7 @@ components:
   properties: {height: 11, spacing_above: none, spacing_below: none, tooltip: '', visible: true}
   type: Spacer
 container:
-  event_bindings: {show: focus_name}
+  event_bindings: {}
   properties: {col_widths: '{}'}
   type: ColumnPanel
 is_package: true
