@@ -10,7 +10,6 @@ from .. import return_to_mother_app
 from .. import url_from_mail
 
 class Form1(Form1Template):
-  alert("Form1")
   def __init__(self, h={}, num_stage=0, pour_stage=0, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

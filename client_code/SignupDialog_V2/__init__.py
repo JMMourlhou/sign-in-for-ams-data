@@ -12,7 +12,7 @@ from anvil.js.window import localStorage
 from anvil.js import window
 
 class SignupDialog_V2(SignupDialog_V2Template):
-    def __init__(self, h={}, num_stage=0, pour_stage=0, **properties):
+    def __init__(self, h={}, num_stage=0, pour_stage=0, test=0, **properties):
         # Set Form properties and Data Bindings.
         # Any code you write here will run when the form opens.
         alert("test")
@@ -23,6 +23,8 @@ class SignupDialog_V2(SignupDialog_V2Template):
         self.password_repeat_box.text = ""
         self.num_stage = num_stage
         self.pour_stage = pour_stage
+        self.test = test
+        alert(test)
         
         self.name_box.focus() 
 
