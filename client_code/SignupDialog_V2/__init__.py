@@ -5,7 +5,6 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-#from .. import login_flow
 from .. import return_to_mother_app
 
 import anvil.js   # pour fermer la fenêtre qd on a demandé à l'utilisateur d'aller ds ses mails pour valider le mail de confirmation
@@ -24,7 +23,7 @@ class SignupDialog_V2(SignupDialog_V2Template):
         self.num_stage = num_stage
         self.pour_stage = pour_stage
         
-        self.name_box.focus() 
+        self.name_box.focus()
 
     
     def button_validation_click(self, **event_args):
