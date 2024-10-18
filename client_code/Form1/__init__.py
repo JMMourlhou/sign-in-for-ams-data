@@ -16,7 +16,7 @@ class Form1(Form1Template):
     # Any code you write here will run when the form opens.
     self.num_stage = num_stage  
     self.h=h
-    alert(h)
+    #alert(h)
     if len(h)!=0:  # a URL from a confirm/reset_pw mail/qr code was sent to main app
         url_from_mail.confirm(h, num_stage) 
             

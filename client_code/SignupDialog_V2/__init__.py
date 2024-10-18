@@ -5,7 +5,6 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-#from .. import login_flow
 from .. import return_to_mother_app
 
 import anvil.js   # pour fermer la fenêtre qd on a demandé à l'utilisateur d'aller ds ses mails pour valider le mail de confirmation
@@ -16,6 +15,7 @@ class SignupDialog_V2(SignupDialog_V2Template):
     def __init__(self, h={}, num_stage=0, pour_stage=0, **properties):
         # Set Form properties and Data Bindings.
         # Any code you write here will run when the form opens.
+        alert("test")
         self.init_components(**properties)
         self.name_box.text = ""
         self.email_box.text = ""
