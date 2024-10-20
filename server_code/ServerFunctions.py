@@ -62,7 +62,7 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 {code_app1}/#?a=pwreset&email={url_encode(user['email'])}&api={url_encode(user['api_key'])}&t={t} <br>
 <br><br>
 <b><i>         Jean-Marc</b></i>,<br>
-<b>https://jmweb34.org</b> <br>
+https://jmweb34.net <br>
 mail: {mon_mail} <br>
 """)
       
@@ -91,7 +91,7 @@ Afin de confirmer votre adresse mail, <b>clickez le lien ci-dessous:</b><br>
 {code_app1}/#?a=confirm&email={url_encode(user['email'])}&hpw={url_encode(user['password_hash'])}&t={t} <br>
 <br><br>
 <b><i>         Jean-Marc</b></i>,<br>
-<b>https://jmweb34.org</b> <br>
+https://jmweb34.net <br>
 {mon_mail} <br>
 """)
   return True
