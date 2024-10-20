@@ -62,15 +62,15 @@ Si vous désirez poursuivre et ré-initialiser votre mot de passe, <b>clickez le
 {code_app1}/#?a=pwreset&email={url_encode(user['email'])}&api={url_encode(user['api_key'])}&t={t} <br>
 <br><br>
 <b><i>         Jean-Marc</b></i>,<br>
-<b>jmweb34.org</b> <br>
-{mon_mail} <br>
+<b>https://jmweb34.org</b> <br>
+mail: {mon_mail} <br>
 """)
       
     return True
 
 
 
-"""Sending the email confirmation link: the new user's email must be confirmed"""
+"""Sending the email confirmation link: for the new user's email to be confirmed"""
 @anvil.server.callable
 def _send_email_confirm_link(email):
   recup_global_variables()   # appel au module qui va lire les var_globales, stockées ds table 
@@ -91,7 +91,7 @@ Afin de confirmer votre adresse mail, <b>clickez le lien ci-dessous:</b><br>
 {code_app1}/#?a=confirm&email={url_encode(user['email'])}&hpw={url_encode(user['password_hash'])}&t={t} <br>
 <br><br>
 <b><i>         Jean-Marc</b></i>,<br>
-<b>jmweb34.org</b> <br>
+<b>https://jmweb34.org</b> <br>
 {mon_mail} <br>
 """)
   return True
