@@ -12,11 +12,15 @@ from anvil.js.window import localStorage
 from anvil.js import window
 
 class SignupDialog_V2(SignupDialog_V2Template):
-    def __init__(self, h={}, num_stage=0, pour_stage=0, **properties):
+    def __init__(self, h={}, num_stage=0, pour_stage=0, xpour_stage=0, **properties):
         # Set Form properties and Data Bindings.
         # Any code you write here will run when the form opens.
+        alert(f"num_stage: {num_stage}")
+        alert(f"h: {h}")
+        alert(f"pour_stage: {pour_stage}")
+        alert(f"xpour_stage: {xpour_stage}")
+        
         self.init_components(**properties)
-        alert("signup")
         self.name_box.text = ""
         self.email_box.text = ""
         self.password_box.text = ""

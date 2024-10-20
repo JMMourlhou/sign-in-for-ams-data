@@ -13,7 +13,6 @@ class Form1(Form1Template):
   def __init__(self, h={}, num_stage=0, pour_stage=0, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    alert("main")
     # Any code you write here will run when the form opens.
     self.num_stage = num_stage  
     self.h=h
