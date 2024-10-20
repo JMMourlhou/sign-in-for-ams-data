@@ -16,6 +16,7 @@ class SignupDialog_V2(SignupDialog_V2Template):
         # Set Form properties and Data Bindings.
         # Any code you write here will run when the form opens.
         self.init_components(**properties)
+        alert("signup")
         self.name_box.text = ""
         self.email_box.text = ""
         self.password_box.text = ""
