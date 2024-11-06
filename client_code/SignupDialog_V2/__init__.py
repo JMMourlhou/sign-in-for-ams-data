@@ -30,7 +30,7 @@ class SignupDialog_V2(SignupDialog_V2Template):
         self.num_stage = num_stage
         self.pour_stage = pour_stage
         
-        self.name_box.focus() 
+        
 
     
     def button_validation_click(self, **event_args):
@@ -93,6 +93,10 @@ class SignupDialog_V2(SignupDialog_V2Template):
     def password_repeat_box_pressed_enter(self, **event_args):
         """This method is called when the user presses Enter in this text box"""
         self.button_validation_click()
+
+    def form_show(self, **event_args):
+        """This method is called when the form is shown on the page"""
+        self.name_box.focus() 
 
 
 
