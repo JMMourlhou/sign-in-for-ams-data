@@ -56,7 +56,7 @@ class LoginDialog_V2(LoginDialog_V2Template):
                 alert(f"Un nouvel email de confirmation vous a été envoyé à {self.email_box.text}.")
                 return_to_mother_app.calling_mother_app(99)   #je retourne et efface l'url
         except anvil.users.AuthenticationFailed as e:
-            alert("Email ou mot de passe erroné, Ré-entrez les !")
+            alert(f"Erreur:\n\n{e}")
             return
 
     def password_box_pressed_enter(self, **event_args):
