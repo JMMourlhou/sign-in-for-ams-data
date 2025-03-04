@@ -15,19 +15,15 @@ components:
     properties: {align: center, background: 'theme:Primary', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:On Primary', hide_text: true, italic: false, placeholder: Mot de passe, role: null, spacing_above: none, spacing_below: small, text: '', tooltip: '', type: text, underline: false, visible: true}
     type: TextBox
   - components:
-    - event_bindings: {click: button_validation_click}
-      layout_properties: {full_width_row: false, grid_position: 'ZTPAMY,ZMLLLB', row_background: ''}
-      name: button_validation
-      properties: {align: center, background: 'theme:Primary', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:Tertiary', icon: '', icon_align: left, italic: false, role: raised, spacing_above: none, spacing_below: small, text: '   OK    ', tooltip: '', underline: false, visible: true}
-      type: Button
     - event_bindings: {click: button_retour_click}
-      layout_properties:
-        col_widths: {}
-        full_width_row: false
-        grid_position: ZTPAMY,SRWFIM
-        row_background: ''
+      layout_properties: {grid_position: ''}
       name: button_retour
       properties: {align: center, background: 'theme:Primary', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:Tertiary', icon: '', icon_align: left, italic: false, role: raised, spacing_above: none, spacing_below: small, text: Retour, tooltip: '', underline: false, visible: true}
+      type: Button
+    - event_bindings: {click: button_validation_click}
+      layout_properties: {grid_position: ',UHJJNI'}
+      name: button_validation
+      properties: {align: center, background: 'theme:Primary', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: 'theme:Tertiary', icon: '', icon_align: left, italic: false, role: raised, spacing_above: none, spacing_below: small, text: '   OK    ', tooltip: '', underline: false, visible: true}
       type: Button
     layout_properties: {grid_position: 'XMXSXV,EQFWFY'}
     name: column_panel_1
