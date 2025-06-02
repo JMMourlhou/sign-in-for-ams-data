@@ -36,8 +36,6 @@ def mk_api_key():
     return user_api_key
 
 
-
-
 """ demande de chgt de Password """    
 @anvil.server.callable
 def _send_password_reset(email):
@@ -71,7 +69,7 @@ mail: {mon_mail} <br>
 
 
 
-"""Sending the email confirmation link: for the new user's email to be confirmed"""
+"""Envoi du mail de confirmation: le mail du new user doit être confirmé"""
 @anvil.server.callable
 def _send_email_confirm_link(email):
   recup_global_variables()   # appel au module qui va lire les var_globales, stockées ds table 
