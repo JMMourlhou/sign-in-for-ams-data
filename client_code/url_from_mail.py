@@ -29,6 +29,8 @@ def confirm_or_pwreset(h, num_stage=0):
     print("type; ", isinstance(h, dict))
     
     url_purpose=h["a"]  # contient le but du lien: qrcode ou pwrest ou confirm
+
+    """ ***************************** URL crée après que le user ai flaché un qrcode  """
     if url_purpose == "qrcode":
         login_flow.signup_with_form(num_stage)        # envoyer en sign in
     
