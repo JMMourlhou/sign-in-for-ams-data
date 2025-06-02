@@ -44,7 +44,7 @@ def login_with_form(allow_cancel=True):
                 alert(f"Un nouvel email de confirmation a été envoyé à {d.email_box.text}.")
                 return_to_mother_app.calling_mother_app(99)    # retour et effacement du lien
         except anvil.users.AuthenticationFailed as e:
-            alert(f"Email ou mot de passe erroné, Ré-entrez les !")
+            alert("Email ou mot de passe erroné, Ré-entrez les !")
             break
            
     elif choice == 'reset_password':

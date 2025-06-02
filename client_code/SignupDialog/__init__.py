@@ -66,7 +66,7 @@ class SignupDialog(SignupDialogTemplate):
       self.email_box.text = mel
       
       # @ ds mail ?
-      if not "@" in self.email_box.text:
+      if "@" not in self.email_box.text:
           alert("Entrez un mail valide !")
           return
 
